@@ -127,20 +127,35 @@
 
 * 5、mybatis新版本支持面向接口编程，程序员不需要再写接口的实现类，转而用配置文件代替：
 
-     * 创建UserMapper的映射文件 UserMapper.xml：
-     
-            UserMapper.xml (此文件需要和dao文件同名)
-            <?xml version="1.0" encoding="UTF-8" ?>
-            <!DOCTYPE mapper
+     * 创建UserMapper的映射文件 UserMapper.xml：(此文件需要和dao文件同名)
+           
+      <?xml version="1.0" encoding="UTF-8" ?>
+      <!DOCTYPE mapper
               PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
               "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-            <mapper namespace="com.weixin.mapper.UserMapper">
-              <select id="selectAll" resultType="com.weixin.bean.User">
-                select * from user
-              </select>
-            </mapper>
+      <mapper namespace="com.edu.mapper.UserMapper">
+          <select id="selectAll" resultType="com.edu.bean.User">
+               select * from user
+          </select>
+      </mapper>
 
+* 6、测试
 
+      public class UserTest {
+          @Test
+          public void selectAll() throws IOException, SQLException {
+          //加载mybatis-config.xml到输入流
+              InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+          //通过输入流构建SqlSessionFactory对象
+              SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+          //通过SqlSessionFactory对象得到一个SqlSession对象，每个数据库操作都依靠SqlSession
+              SqlSession sqlSession = sqlSessionFactory.openSession();
+          //通过SqlSession对象得到一个mapper的实现对象
+              UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+              List<user> users = mapper.selectAll();
+              System.out.println(users);
+          }
+      }
 
 
 
