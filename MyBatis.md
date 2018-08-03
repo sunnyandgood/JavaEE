@@ -27,11 +27,49 @@
               INSERT INTO `user` VALUES ('1', '小明', '1', 'xiaoming@163.com');
               
 * 2、新建工程并导包（新建一个javase工程）
-
-     * mybatis-3.4.6.jar
      
-     * mysql-connector-java-5.1.14.jar
-      
+     * 手动
+     
+          * mybatis-3.4.6.jar
+     
+          * mysql-connector-java-5.1.14.jar
+     * 自动
+     
+            <dependency>
+                  <groupId>junit</groupId>
+                  <artifactId>junit</artifactId>
+                  <version>4.12</version>
+                  <scope>test</scope>
+                </dependency>
+                <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+                <dependency>
+                  <groupId>org.mybatis</groupId>
+                  <artifactId>mybatis</artifactId>
+                  <version>3.4.1</version>
+                </dependency>
+                <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+                <dependency>
+                  <groupId>mysql</groupId>
+                  <artifactId>mysql-connector-java</artifactId>
+                  <version>5.1.14</version>
+                </dependency>
+                <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
+                <dependency>
+                  <groupId>org.slf4j</groupId>
+                  <artifactId>slf4j-log4j12</artifactId>
+                  <version>1.7.25</version>
+                  <scope>test</scope>
+                </dependency>
+
+                <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+              <!-- <dependency>
+                  <groupId>org.projectlombok</groupId>
+                  <artifactId>lombok</artifactId>
+                  <version>1.18.0</version>
+                  <scope>provided</scope>
+              </dependency> -->     
+     
+     
 * 3、创建Mybatis总配置文件mybatis-config.xml(文件名可变)
 
       <?xml version="1.0" encoding="UTF-8" ?>
