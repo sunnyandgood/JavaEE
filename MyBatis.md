@@ -141,9 +141,16 @@
 
 * 6、将UserMapper.xml 加载到总配置文件
 
+      <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+      </settings>
+      
+      
       <mappers>
            <mapper resource="UserMapper.xml"/>
       </mappers>
+
+
 
 * 7、测试
 
