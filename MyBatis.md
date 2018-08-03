@@ -113,8 +113,32 @@
                 }
             }
 
+     * UserMapper.java
+     
+            package com.edu.mapper;
 
+            import com.edu.bean.User;
 
+            import java.util.List;
+
+            public interface UserMapper {
+                List<User> selectAll();
+            }
+
+* 5、mybatis新版本支持面向接口编程，程序员不需要再写接口的实现类，转而用配置文件代替：
+
+     * 创建UserMapper的映射文件 UserMapper.xml：
+     
+            UserMapper.xml (此文件需要和dao文件同名)
+            <?xml version="1.0" encoding="UTF-8" ?>
+            <!DOCTYPE mapper
+              PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+              "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+            <mapper namespace="com.weixin.mapper.UserMapper">
+              <select id="selectAll" resultType="com.weixin.bean.User">
+                select * from user
+              </select>
+            </mapper>
 
 
 
