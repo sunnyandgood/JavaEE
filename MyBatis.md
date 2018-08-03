@@ -145,6 +145,9 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
       </settings>
       
+      <environments>
+      
+      </environments>
       
       <mappers>
            <mapper resource="UserMapper.xml"/>
