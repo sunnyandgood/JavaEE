@@ -28,9 +28,35 @@
               
 * 2、新建工程并导包（新建一个javase工程）
 
+     * mybatis-3.4.6.jar
+     
+     * mysql-connector-java-5.1.14.jar
+      
+* 3、创建Mybatis总配置文件mybatis-config.xml(文件名可变)
 
-
-
+      <?xml version="1.0" encoding="UTF-8" ?>
+      <!DOCTYPE configuration
+              PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+              "http://mybatis.org/dtd/mybatis-3-config.dtd">
+      <configuration>
+          <!--<typeAliases>
+              <package name="com.weixin.vo"/>
+          </typeAliases> -->
+          <environments default="development">
+              <environment id="development">
+                  <transactionManager type="JDBC"/>
+                  <dataSource type="POOLED">
+                      <property name="driver" value="com.mysql.jdbc.Driver"/>
+                      <property name="url" value="jdbc:mysql://localhost:3306/mybatis"/>
+                      <property name="username" value="root"/>
+                      <property name="password" value="root"/>
+                  </dataSource>
+              </environment>
+          </environments>
+          <!-- <mappers>
+              <mapper resource="UserMapper.xml"/>
+            </mappers> -->
+      </configuration>
 
 
 
