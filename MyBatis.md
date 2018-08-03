@@ -139,7 +139,13 @@
           </select>
       </mapper>
 
-* 6、测试
+* 6、将UserMapper.xml 加载到总配置文件
+
+      <mappers>
+           <mapper resource="UserMapper.xml"/>
+      </mappers>
+
+* 7、测试
 
       public class UserTest {
           @Test
