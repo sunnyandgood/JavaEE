@@ -33,7 +33,8 @@
           * mybatis-3.4.6.jar
      
           * mysql-connector-java-5.1.14.jar
-     * 自动
+          
+     * 自动（将以下内容加到pom.xml中）
      
             <dependency>
                   <groupId>junit</groupId>
@@ -190,7 +191,7 @@
                 }
             }
 
-     * UserMapper.java
+     * UserMapper.java(dao文件)
      
             package com.edu.mapper;
 
@@ -215,27 +216,27 @@
 
      * 创建UserMapper的映射文件 UserMapper.xml：(此文件需要和dao文件同名)
            
-      <?xml version="1.0" encoding="UTF-8" ?>
-      <!DOCTYPE mapper
-              PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-              "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-      <mapper namespace="com.edu.mapper.UserMapper">
-          <insert id="inser">
-              insert into user(user_name,gender,email) values (#{userName},#{gender},#{email});
-          </insert>
-          <update id="update">
-              update user set user_name = #{userName},gender = #{gender},email = #{email} where id = #{id}
-          </update>
-          <delete id="deleteById">
-              delete from user where id = #{id}
-          </delete>
-          <select id="selectAll" resultType="com.edu.bean.User">
-               select * from user
-          </select>
-          <select id="selectById" resultType="com.edu.bean.User">
-              select * from user where id = #{id}
-          </select>
-      </mapper>
+            <?xml version="1.0" encoding="UTF-8" ?>
+            <!DOCTYPE mapper
+                    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+            <mapper namespace="com.edu.mapper.UserMapper">
+                <insert id="inser">
+                    insert into user(user_name,gender,email) values (#{userName},#{gender},#{email});
+                </insert>
+                <update id="update">
+                    update user set user_name = #{userName},gender = #{gender},email = #{email} where id = #{id}
+                </update>
+                <delete id="deleteById">
+                    delete from user where id = #{id}
+                </delete>
+                <select id="selectAll" resultType="com.edu.bean.User">
+                     select * from user
+                </select>
+                <select id="selectById" resultType="com.edu.bean.User">
+                    select * from user where id = #{id}
+                </select>
+            </mapper>
 
 * 6、将UserMapper.xml 加载到总配置文件mybatis-config.xml中
 
