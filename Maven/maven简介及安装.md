@@ -18,6 +18,17 @@
 
     * 关联eclipse
     
+    * 配置settings.xml（apache-maven-3.5.0\conf\settings.xml）
+    
+    * 修改settings.xml
+    
+            <mirror>
+                <id>nexus-aliyun</id>
+                <mirrorOf>*</mirrorOf>
+                <name>Nexus aliyun</name>
+                <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            </mirror> 
+    
 
 
 
