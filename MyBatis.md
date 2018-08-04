@@ -121,7 +121,7 @@
                   <transactionManager type="JDBC"/>
                   <dataSource type="POOLED">
                       <property name="driver" value="com.mysql.jdbc.Driver"/>
-                      <property name="url" value="jdbc:mysql://localhost:3306/mybatis"/>
+                      <property name="jdbc:mysql://localhost:3306/mybatis??useUnicode=true&amp;characterEncoding=UTF-8"/>
                       <property name="username" value="root"/>
                       <property name="password" value="root"/>
                   </dataSource>
@@ -139,37 +139,40 @@
             package com.edu.bean;
 
             public class User {
-                private int id;
+                private Integer id;
                 private String userName;
                 private String gender;
                 private String email;
 
-                public int getId() {
-                    return id;
+                public User() {
                 }
 
-                public void setId(int id) {
-                    this.id = id;
+                public Integer getId() {
+                    return this.id;
                 }
 
                 public String getUserName() {
-                    return userName;
+                    return this.userName;
+                }
+
+                public String getGender() {
+                    return this.gender;
+                }
+
+                public String getEmail() {
+                    return this.email;
+                }
+
+                public void setId(Integer id) {
+                    this.id = id;
                 }
 
                 public void setUserName(String userName) {
                     this.userName = userName;
                 }
 
-                public String getGender() {
-                    return gender;
-                }
-
                 public void setGender(String gender) {
                     this.gender = gender;
-                }
-
-                public String getEmail() {
-                    return email;
                 }
 
                 public void setEmail(String email) {
@@ -196,7 +199,16 @@
             import java.util.List;
 
             public interface UserMapper {
+                //查询所有数据
                 List<User> selectAll();
+                //根据id查询一条语句
+                User selectById(int id);
+                //增加用户
+                int inser(User user);
+                //删除用户
+                boolean deleteById(int id);
+                //修改用户
+                boolean update(User user);
             }
 
 * 5、mybatis新版本支持面向接口编程，程序员不需要再写接口的实现类，转而用配置文件代替：
@@ -208,12 +220,24 @@
               PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
               "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
       <mapper namespace="com.edu.mapper.UserMapper">
+          <insert id="inser">
+              insert into user(user_name,gender,email) values (#{userName},#{gender},#{email});
+          </insert>
+          <update id="update">
+              update user set user_name = #{userName},gender = #{gender},email = #{email} where id = #{id}
+          </update>
+          <delete id="deleteById">
+              delete from user where id = #{id}
+          </delete>
           <select id="selectAll" resultType="com.edu.bean.User">
                select * from user
           </select>
+          <select id="selectById" resultType="com.edu.bean.User">
+              select * from user where id = #{id}
+          </select>
       </mapper>
 
-* 6、将UserMapper.xml 加载到总配置文件
+* 6、将UserMapper.xml 加载到总配置文件mybatis-config.xml中
 
       <settings>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
@@ -231,7 +255,7 @@
 
 * 7、测试
 
-      package com.edu.test;
+      package com.edu;
 
       import com.edu.bean.User;
       import com.edu.mapper.UserMapper;
@@ -239,23 +263,92 @@
       import org.apache.ibatis.session.SqlSession;
       import org.apache.ibatis.session.SqlSessionFactory;
       import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+      import org.junit.Test;
 
       import java.io.IOException;
       import java.io.InputStream;
       import java.util.List;
 
       public class UserTest {
+
+          //加载mybatis-config.xml到输入流
+          InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+          //通过输入流构建SqlSessionFactory对象
+          SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
+          public UserTest() throws IOException {
+          }
+
+          @Test
           public void testSelectAll() throws IOException {
-              //加载mybatis-config.xml到输入流
-              InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
-              //通过输入流构建SqlSessionFactory对象
-              SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
               //通过SqlSessionFactory对象得到一个SqlSession对象，每个数据库操作都依靠SqlSession
               SqlSession sqlSession = sqlSessionFactory.openSession();
               //通过SqlSession对象得到一个mapper的实现对象
               UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-              List<User> users = mapper.selectAll();
-              System.out.println(users);
+              List<User> usersList = mapper.selectAll();
+              System.out.println(usersList);
+          }
+
+          @Test
+          public void testSelectById(){
+              //通过SqlSessionFactory对象得到一个SqlSession对象，每个数据库操作都依靠SqlSession
+              SqlSession sqlSession = sqlSessionFactory.openSession();
+              //通过SqlSession对象得到一个mapper的实现对象
+              UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+
+              User user = mapper.selectById(1);
+              System.out.println(user);
+          }
+
+          @Test
+          public void testInsert(){
+              //通过SqlSessionFactory对象得到一个SqlSession对象，每个数据库操作都依靠SqlSession
+              SqlSession sqlSession = sqlSessionFactory.openSession();
+              //通过SqlSession对象得到一个mapper的实现对象
+              UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+
+              User user = new User();
+              user.setUserName("小美");
+              user.setGender("2");
+              user.setEmail("7777@163.com");
+
+              int inser = mapper.inser(user);
+
+              System.out.println(inser);
+
+              //提交事务
+              sqlSession.commit();
+          }
+
+          @Test
+          public void testDeleteById(){
+              //通过SqlSessionFactory对象得到一个SqlSession对象，每个数据库操作都依靠SqlSession
+              SqlSession sqlSession = sqlSessionFactory.openSession();
+              //通过SqlSession对象得到一个mapper的实现对象
+              UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+
+              boolean b = mapper.deleteById(5);
+
+              System.out.println(b);
+
+              sqlSession.commit();
+          }
+
+          @Test
+          public void testUpdate(){
+              //通过SqlSessionFactory对象得到一个SqlSession对象，每个数据库操作都依靠SqlSession
+              SqlSession sqlSession = sqlSessionFactory.openSession();
+              //通过SqlSession对象得到一个mapper的实现对象
+              UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+
+              //先把数据查出来
+              User user = mapper.selectById(1);
+              user.setGender("2");
+
+              //修改
+              mapper.update(user);
+              sqlSession.commit();
           }
       }
 
