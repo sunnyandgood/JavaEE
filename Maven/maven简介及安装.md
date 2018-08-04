@@ -18,7 +18,11 @@
 
     * 关联eclipse
     
+            window->Preference->Maven->Installations->add->External->Directory
+    
     * 配置settings.xml（apache-maven-3.5.0\conf\settings.xml）
+    
+            window->Preference->Maven->User Setting->Browse
     
     * 修改settings.xml
     
