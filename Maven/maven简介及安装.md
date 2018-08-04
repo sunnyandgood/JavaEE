@@ -16,7 +16,7 @@
     
 * 2、安装
 
-    * 关联eclipse
+    * 关联eclipse（apache-maven-3.5.0）
     
             window->Preference->Maven->Installations->add->External->Directory
     
