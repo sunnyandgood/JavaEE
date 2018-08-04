@@ -28,13 +28,13 @@
               
 * 2、新建工程并导包（新建一个javase工程）
      
-     * 手动
+     * 手动（非maven项目）
      
           * mybatis-3.4.6.jar
      
           * mysql-connector-java-5.1.14.jar
           
-     * 自动（将以下内容加到pom.xml中）
+     * 自动（maven项目）（将以下内容加到pom.xml中）
      
             <dependency>
                   <groupId>junit</groupId>
