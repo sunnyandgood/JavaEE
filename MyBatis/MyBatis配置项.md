@@ -28,3 +28,18 @@
         * databaseIdProvider 数据库厂商标识
         
         * mappers 映射器
+
+### 二、properties属性
+
+* 此配置可以把数据库连接信息配置到另外一个配置文件中，实际工作中数据库连接一般交给Spring管理，此配置一般不用。
+
+   >eg:
+
+         <transactionManager type="JDBC"/>
+         <dataSource type="POOLED">
+             <property name="driver" value="com.mysql.jdbc.Driver"/>
+             <property name="url" value="jdbc:mysql://localhost:3306/mybatis??useUnicode=true&amp;
+                                                                        characterEncoding=UTF-8"/>
+             <property name="username" value="root"/>
+             <property name="password" value="root"/>
+         </dataSource>
