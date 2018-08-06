@@ -43,3 +43,8 @@
              <property name="username" value="root"/>
              <property name="password" value="root"/>
          </dataSource>
+
+### 三、setting设置
+
+* 这是 MyBatis 中极为重要的调整设置，它们会改变 MyBatis 的运行时行为。下表描述了设置中各项的意图、默认值等。
+
