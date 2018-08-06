@@ -263,5 +263,164 @@
           <package name="com.weixin.bean"/>
       </typeAliases>
 
+### 五、typeHandlers 类型处理器
+
+* 数据库中的类型和java类型的映射都是依靠此类型处理器，比如数据库的char,varchar将会映射为java的String类型，一般不需要再单独设配置
+
+### 六、对象工厂（objectFactory）
+
+* MyBatis 每次创建结果对象的新实例时，它都会使用一个对象工厂（ObjectFactory）实例来完成。 默认的对象工厂需要做的仅仅是实例化目标类，要么通过默认构造方法，要么在参数映射存在的时候通过参数构造方法来实例化。 如果想覆盖对象工厂的默认行为，则可以通过创建自己的对象工厂来实现。
+
+   >eg
+   
+      // ExampleObjectFactory.java
+      public class ExampleObjectFactory extends DefaultObjectFactory {
+        public Object create(Class type) {
+          return super.create(type);
+        }
+        public Object create(Class type, List<Class> constructorArgTypes, List<Object> constructorArgs) {
+          return super.create(type, constructorArgTypes, constructorArgs);
+        }
+        public void setProperties(Properties properties) {
+          super.setProperties(properties);
+        }
+        public <T> boolean isCollection(Class<T> type) {
+          return Collection.class.isAssignableFrom(type);
+        }
+      }   
+
+
+
+      <!-- mybatis-config.xml -->
+      <objectFactory type="org.mybatis.example.ExampleObjectFactory">
+        <property name="someProperty" value="100"/>
+      </objectFactory>
+
+* ObjectFactory 接口很简单，它包含两个创建用的方法，一个是处理默认构造方法的，另外一个是处理带参数的构造方法的。 最后，setProperties 方法可以被用来配置 ObjectFactory，在初始化你的 ObjectFactory 实例后， objectFactory 元素体中定义的属性会被传递给 setProperties 方法。
+
+
+### 七、插件（plugins）
+
+*  MyBatis 允许你在已映射语句执行过程中的某一点进行拦截调用。默认情况下，MyBatis 允许使用插件来拦截的方法调用包括：
+    
+    * Executor (update, query, flushStatements, commit, rollback, getTransaction, close, isClosed)
+    
+    * ParameterHandler (getParameterObject, setParameters)
+    
+    * ResultSetHandler (handleResultSets, handleOutputParameters)
+    
+    * StatementHandler (prepare, parameterize, batch, update, query)
+
+* 这些类中方法的细节可以通过查看每个方法的签名来发现，或者直接查看 MyBatis 发行包中的源代码。 如果你想做的不仅仅是监控方法的调用，那么你最好相当了解要重写的方法的行为。 因为如果在试图修改或重写已有方法的行为的时候，你很可能在破坏 MyBatis 的核心模块。 这些都是更低层的类和方法，所以使用插件的时候要特别当心。
+
+* 通过 MyBatis 提供的强大机制，使用插件是非常简单的，只需实现 Interceptor 接口，并指定想要拦截的方法签名即可。
+
+   >eg
+
+         // ExamplePlugin.java
+         @Intercepts({@Signature(
+           type= Executor.class,
+           method = "update",
+           args = {MappedStatement.class,Object.class})})
+         public class ExamplePlugin implements Interceptor {
+           public Object intercept(Invocation invocation) throws Throwable {
+             return invocation.proceed();
+           }
+           public Object plugin(Object target) {
+             return Plugin.wrap(target, this);
+           }
+           public void setProperties(Properties properties) {
+           }
+         }
+
+
+         <!-- mybatis-config.xml -->
+         <plugins>
+           <plugin interceptor="org.mybatis.example.ExamplePlugin">
+             <property name="someProperty" value="100"/>
+           </plugin>
+         </plugins>
+
+     * 上面的插件将会拦截在 Executor 实例中所有的 “update” 方法调用， 这里的 Executor 是负责执行低层映射语句的内部对象。
+
+* 覆盖配置类
+
+     * 除了用插件来修改 MyBatis 核心行为之外，还可以通过完全覆盖配置类来达到目的。只需继承后覆盖其中的每个方法，再把它传递到 SqlSessionFactoryBuilder.build(myConfig) 方法即可。再次重申，这可能会严重影响 MyBatis 的行为，务请慎之又慎。
+     
+     
+### 八、配置环境（environments）
+
+* 我们可以配置多个数据库连接信息，比如开发阶段连接一个，测试阶段连接另一个，只需要修改default的值即可
+
+      <environments default="development">
+        <environment id="development">
+          <transactionManager type="JDBC">
+            <property name="..." value="..."/>
+          </transactionManager>
+          <dataSource type="POOLED">
+            <property name="driver" value="${driver}"/>
+            <property name="url" value="${url}"/>
+            <property name="username" value="${username}"/>
+            <property name="password" value="${password}"/>
+          </dataSource>
+        </environment>
+
+        <environment id="test">
+          <transactionManager type="JDBC">
+            <property name="..." value="..."/>
+          </transactionManager>
+          <dataSource type="POOLED">
+            <property name="driver" value="${driver}"/>
+            <property name="url" value="${url}"/>
+            <property name="username" value="${username}"/>
+            <property name="password" value="${password}"/>
+          </dataSource>
+        </environment>
+      </environments>
+
+* 事务管理器（transactionManager）
+
+     * 在 MyBatis 中有两种类型的事务管理器（也就是 type=”[JDBC|MANAGED]”）：
+
+        * JDBC – 这个配置就是直接使用了 JDBC 的提交和回滚设置，它依赖于从数据源得到的连接来管理事务作用域。
+
+        * MANAGED – 这个配置几乎没做什么。它从来不提交或回滚一个连接，而是让容器来管理事务的整个生命周期（比如 JEE 应用服务器的上下文）。 默认情况下它会关闭连接，然而一些容器并不希望这样，因此需要将 closeConnection 属性设置为 false 来阻止它默认的关闭行为。
+            
+            >eg
+            
+               <transactionManager type="MANAGED">
+                  <property name="closeConnection" value="false"/>
+               </transactionManager>
+               
+     * 如果你正在使用 Spring + MyBatis，则没有必要配置事务管理器， 因为 Spring 模块会使用自带的管理器来覆盖前面的配置。
+
+     * 这两种事务管理器类型都不需要任何属性。它们不过是类型别名，换句话说，你可以使用 TransactionFactory 接口的实现类的完全限定名或类型别名代替它们。
+
+            public interface TransactionFactory {
+              void setProperties(Properties props);  
+              Transaction newTransaction(Connection conn);
+              Transaction newTransaction(DataSource dataSource, TransactionIsolationLevel level, boolean autoCommit);  
+            }
+
+     * 任何在 XML 中配置的属性在实例化之后将会被传递给 setProperties() 方法。你也需要创建一个 Transaction 接口的实现类，这个接口也很简单：
+
+            public interface Transaction {
+              Connection getConnection() throws SQLException;
+              void commit() throws SQLException;
+              void rollback() throws SQLException;
+              void close() throws SQLException;
+              Integer getTimeout() throws SQLException;
+            }
+
+     * 使用这两个接口，你可以完全自定义 MyBatis 对事务的处理。
+
+
+
+
+
+
+
+
+
 
 
