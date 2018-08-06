@@ -413,9 +413,67 @@
             }
 
      * 使用这两个接口，你可以完全自定义 MyBatis 对事务的处理。
+     
+*  数据源（dataSource）
 
+      * dataSource 元素使用标准的 JDBC 数据源接口来配置 JDBC 连接对象的资源。
 
+      * 许多 MyBatis 的应用程序会按示例中的例子来配置数据源。虽然这是可选的，但为了使用延迟加载，数据源是必须配置的。
 
+      * 有三种内建的数据源类型（也就是 type=”[UNPOOLED|POOLED|JNDI]”）：
+
+### 九、databaseIdProvider
+
+* MyBatis 可以根据不同的数据库厂商执行不同的语句，这种多厂商的支持是基于映射语句中的 databaseId 属性。 MyBatis 会加载不带 databaseId 属性和带有匹配当前数据库 databaseId 属性的所有语句。 如果同时找到带有 databaseId 和不带 databaseId 的相同语句，则后者会被舍弃。 为支持多厂商特性只要像下面这样在 mybatis-config.xml 文件中加入 databaseIdProvider 即可：
+
+      <databaseIdProvider type="DB_VENDOR" />
+
+* 这里的 DB_VENDOR 会通过 DatabaseMetaData#getDatabaseProductName() 返回的字符串进行设置。 由于通常情况下这个字符串都非常长而且相同产品的不同版本会返回不同的值，所以最好通过设置属性别名来使其变短，如下：
+
+      <databaseIdProvider type="DB_VENDOR">
+        <property name="SQL Server" value="sqlserver"/>
+        <property name="DB2" value="db2"/>        
+        <property name="Oracle" value="oracle" />
+      </databaseIdProvider>
+
+* 在提供了属性别名时，DB_VENDOR databaseIdProvider 将被设置为第一个能匹配数据库产品名称的属性键对应的值，如果没有匹配的属性将会设置为 “null”。 在这个例子中，如果 getDatabaseProductName() 返回“Oracle (DataDirect)”，databaseId 将被设置为“oracle”。
+
+* 你可以通过实现接口 org.apache.ibatis.mapping.DatabaseIdProvider 并在 mybatis-config.xml 中注册来构建自己的 DatabaseIdProvider：
+
+      public interface DatabaseIdProvider {
+        void setProperties(Properties p);
+        String getDatabaseId(DataSource dataSource) throws SQLException;
+      }
+
+### 十、映射器（mappers）
+
+* 既然 MyBatis 的行为已经由上述元素配置完了，我们现在就要定义 SQL 映射语句了。但是首先我们需要告诉 MyBatis 到哪里去找到这些语句。 Java 在自动查找这方面没有提供一个很好的方法，所以最佳的方式是告诉 MyBatis 到哪里去找映射文件。你可以使用相对于类路径的资源引用， 或完全限定资源定位符（包括 file:/// 的 URL），或类名和包名等。例如：
+
+      <!-- 使用相对于类路径的资源引用 -->
+      <mappers>
+        <mapper resource="org/mybatis/builder/AuthorMapper.xml"/>
+        <mapper resource="org/mybatis/builder/BlogMapper.xml"/>
+        <mapper resource="org/mybatis/builder/PostMapper.xml"/>
+      </mappers>
+
+      <!-- 使用完全限定资源定位符（URL） -->
+      <mappers>
+        <mapper url="file:///var/mappers/AuthorMapper.xml"/>
+        <mapper url="file:///var/mappers/BlogMapper.xml"/>
+        <mapper url="file:///var/mappers/PostMapper.xml"/>
+      </mappers>
+
+      <!-- 使用映射器接口实现类的完全限定类名 -->
+      <mappers>
+        <mapper class="org.mybatis.builder.AuthorMapper"/>
+        <mapper class="org.mybatis.builder.BlogMapper"/>
+        <mapper class="org.mybatis.builder.PostMapper"/>
+      </mappers>
+
+      <!-- 将包内的映射器接口实现全部注册为映射器 -->
+      <mappers>
+        <package name="org.mybatis.builder"/>
+      </mappers>
 
 
 
