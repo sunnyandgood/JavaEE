@@ -233,10 +233,35 @@
         <setting name="defaultStatementTimeout" value="25"/>
         <setting name="defaultFetchSize" value="100"/>
         <setting name="safeRowBoundsEnabled" value="false"/>
+        
         <setting name="mapUnderscoreToCamelCase" value="false"/>
-              此配置默认是false，此配置可以把数据库字段中的下划线替换成java实体类中的驼峰式变量。
-              例如： 数据库中 user_name 可以自动映射为java实体类中的 userName
+              <!--此配置默认是false，此配置可以把数据库字段中的下划线替换成java实体类中的驼峰式变量。-->
+              <!--例如： 数据库中 user_name 可以自动映射为java实体类中的 userName-->
+              
         <setting name="localCacheScope" value="SESSION"/>
         <setting name="jdbcTypeForNull" value="OTHER"/>
         <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
       </settings>   
+
+### 四、typeAliases 类型别名
+
+* 映射文件中,默认只能写全类名： 配置此项后，可以给全类名起别名，在映射文件中方便书写：
+
+      <typeAliases>
+        <typeAlias alias="User" type="com.weixin.User"/>
+      </typeAliases>
+
+* 配置会有默认别名 user ,别名是不区分大小写的，我们在映射文件中还是建议使用User
+
+      <typeAliases>
+        <typeAlias type="com.weixin.User"/>
+      </typeAliases>
+
+* 最优方案👉 一个一个写别名又很麻烦，所以直接指定实体类所在的包，包下所有实体类都会设置别名
+
+      <typeAliases>
+          <package name="com.weixin.bean"/>
+      </typeAliases>
+
+
+
