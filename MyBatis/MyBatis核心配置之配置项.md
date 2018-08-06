@@ -1,4 +1,4 @@
-# MyBatis配置项
+# MyBatis核心配置之配置项
 
 ### 一、XML 映射配置文件
 
