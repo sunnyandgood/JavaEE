@@ -89,8 +89,12 @@
       }
       
  ###  四、多个参数
+ 
+ * Mybatis会默认构建一个map，键是param1,param2....，或者0,1...值是对应传入的实参,拿参的时候直接写键名就可以，所以可以使用#{param1}，#{param2}取值
+
+* 最优方案：我们可以使用注解(@Param("键名"))指定map的键名：
   
- *  UserMapper.java
+*  UserMapper.java
  
         //多参数
         List<User> selectNameGender(@Param("name") String n,@Param("gender") String g);
