@@ -234,6 +234,8 @@
         <setting name="defaultFetchSize" value="100"/>
         <setting name="safeRowBoundsEnabled" value="false"/>
         <setting name="mapUnderscoreToCamelCase" value="false"/>
+              此配置默认是false，此配置可以把数据库字段中的下划线替换成java实体类中的驼峰式变量。
+              例如： 数据库中 user_name 可以自动映射为java实体类中的 userName
         <setting name="localCacheScope" value="SESSION"/>
         <setting name="jdbcTypeForNull" value="OTHER"/>
         <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
