@@ -11,4 +11,5 @@
 * [MyBatis入门](./MyBatis/MyBatis入门.md)
 * [MyBatis核心配置之配置项](./MyBatis/MyBatis核心配置之配置项.md)
 * [MyBatis映射文件配置概述](./MyBatis/MyBatis映射文件配置概述.md)
-* [映射文件配置之CRUD](./MyBatis/MyBatis映射文件配置之CRUD.md)
+* [MyBatis映射文件配置之CRUD](./MyBatis/MyBatis映射文件配置之CRUD.md)
+* [MyBatis映射文件配置之参数传递](./MyBatis/MyBatis映射文件配置之参数传递.md)
