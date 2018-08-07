@@ -15,3 +15,4 @@
 * [MyBatis映射文件配置之CRUD](./MyBatis/MyBatis映射文件配置之CRUD.md)
 * [MyBatis映射文件配置之参数传递](./MyBatis/MyBatis映射文件配置之参数传递.md)
 * [MyBatis进阶用法之复杂映射](./MyBatis/MyBatis进阶用法之复杂映射.md)
+* [MyBatis进阶用法之动态SQL](./MyBatis/MyBatis进阶用法之动态SQL.md)
