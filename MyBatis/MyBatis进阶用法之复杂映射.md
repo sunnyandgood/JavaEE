@@ -153,6 +153,10 @@
 
           @Test
           public void testSelectUserClassRoomById(){
+              //加载mybatis-config.xml到输入流
+              InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+              //通过输入流构建SqlSessionFactory对象
+              SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
               //通过SqlSessionFactory对象得到一个SqlSession对象，每个数据库操作都依靠SqlSession
               SqlSession sqlSession = sqlSessionFactory.openSession();
               //通过SqlSession对象得到一个mapper的实现对象
