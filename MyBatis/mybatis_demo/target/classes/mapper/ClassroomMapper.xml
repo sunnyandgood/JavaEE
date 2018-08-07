@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.mapper.ClassroomMapper">
+
+    <resultMap id="ClassroomUserResultMap" type="com.edu.bean.Classroom">
+        <id property="id" column="c_id"/>
+        <result property="name" column="name"/>
+        <collection property="userList" ofType="com.edu.bean.User">
+            <id property="id" column="u_id"/>
+            <result property="userName" column="user_name"/>
+            <result property="gender" column="gender"/>
+            <result property="email" column="email"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectClassRoomUserById" resultMap="ClassroomUserResultMap">
+        select *,user.id u_id from classroom
+        left join user
+        on user.c_id=classroom.id
+        where classroom.id=#{id}
+    </select>
+    <select id="selectClassRoomUser" resultMap="ClassroomUserResultMap">
+        select classroom.*,user.id,user.user_name,user.gender,user.email
+          from classroom left join user
+          on classroom.id=user.c_id
+    </select>
+</mapper>

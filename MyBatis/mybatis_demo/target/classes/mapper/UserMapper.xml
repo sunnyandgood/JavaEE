@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.mapper.UserMapper">
+
+
+    <resultMap id="UserResultMap" type="com.edu.bean.User">
+        <id property="id" column="id"/>
+        <result property="userName" column="user_name"/>
+        <result property="gender" column="gender"/>
+        <result property="email" column="email"/>
+    </resultMap>
+
+
+    <resultMap id="UserClassRoomResultMap" type="com.edu.bean.User">
+        <id property="id" column="u_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="gender" column="gender"/>
+        <result property="email" column="email"/>
+        <association property="classroom" javaType="com.edu.bean.Classroom">
+            <id property="id" column="c_id"/>
+            <result property="name" column="name"/>
+        </association>
+    </resultMap>
+
+    <insert id="inser">
+        insert into user(user_name,gender,email) values (#{userName},#{gender},#{email});
+    </insert>
+
+    <update id="update">
+        update user set user_name = #{userName},gender = #{gender},email = #{email} where id = #{id}
+    </update>
+
+    <update id="updateWithMap">
+        update user set user_name = #{name},gender = #{gender},email = #{email} where id = #{userid}
+    </update>
+
+
+
+
+
+
+    <delete id="deleteById">
+        delete from user where id = #{id}
+    </delete>
+
+
+    <!--<select id="selectAll" resultType="com.edu.bean.User">-->
+         <!--select * from user-->
+    <!--</select>-->
+    <select id="selectAll" resultMap="UserResultMap">
+         select * from user
+    </select>
+
+    <select id="selectById" resultType="com.edu.bean.User">
+        select * from user where id = #{id}
+    </select>
+    <select id="selectAllByConditionBean" resultType="com.edu.bean.User">
+        select * from user where id=#{id} and user_name=#{userName}
+    </select>
+    <select id="selectAllByConditionMap" resultType="com.edu.bean.User">
+        select * from user  where id=#{id} and user_name=#{userName}
+    </select>
+    <select id="selectByCondition" resultType="com.edu.bean.User">
+        select * from user where user_name=#{list[0]} and gender=#{list[1]}
+    </select>
+
+    <select id="selesctUserClassRoom" resultMap="UserClassRoomResultMap">
+        select *,user.id u_id from user
+        left join classroom
+        on user.c_id=classroom.id
+    </select>
+
+    <select id="selectUserClassRoomById" resultMap="UserClassRoomResultMap">
+        select *,user.id u_id from user
+        left join classroom
+        on user.c_id=classroom.id
+        where user.id=#{id}
+    </select>
+    <select id="selectNameGender" resultType="com.edu.bean.User">
+        select * from user where user_name=#{name} and gender=#{gender}
+    </select>
+
+
+    <!--<select id="selectByConditionIf" resultType="com.edu.bean.User">-->
+        <!--select * from user where 1=1-->
+        <!--<if test="name!=null">-->
+          <!--and user_name = #{name}-->
+        <!--</if>-->
+        <!--<if test="gender!=null">-->
+            <!--and gender = #{gender}-->
+        <!--</if>-->
+        <!--<if test="email!=null">-->
+            <!--and email = #{email}-->
+        <!--</if>-->
+    <!--</select>-->
+
+    <!--<select id="selectByConditionIf" resultType="com.edu.bean.User">-->
+        <!--select * from user-->
+        <!--<where>-->
+            <!--<if test="name!=null">-->
+                <!--and user_name = #{name}-->
+            <!--</if>-->
+            <!--<if test="gender!=null">-->
+                <!--and gender = #{gender}-->
+            <!--</if>-->
+            <!--<if test="email!=null">-->
+                <!--and email = #{email}-->
+            <!--</if>-->
+        <!--</where>-->
+    <!--</select>-->
+
+    <select id="selectByConditionIf" resultType="com.edu.bean.User">
+        select * from user
+        <trim prefix="where" prefixOverrides="and">
+            <if test="name!=null">
+                and user_name = #{name}
+            </if>
+            <if test="gender!=null">
+                and gender = #{gender}
+            </if>
+            <if test="email!=null">
+                and email = #{email}
+            </if>
+        </trim>
+    </select>
+
+
+    <update id="updateIf">
+        update user
+        <set>
+            <if test="userName!=null">
+                user_name = #{userName},
+            </if>
+            <if test="gender!=null">
+                gender = #{gender},
+            </if>
+            <if test="email!=null">
+                email = #{email},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <insert id="insertTrim">
+        insert into user
+        <trim prefix="(" suffixOverrides="," suffix=")">
+            <if test="userName!=null">
+                user_name,
+            </if>
+            <if test="gender!=null">
+                gender,
+            </if>
+            <if test="email!=null">
+                email,
+            </if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userName!=null">
+                #{userName},
+            </if>
+            <if test="gender!=null">
+                #{gender},
+            </if>
+            <if test="email!=null">
+                #{email},
+            </if>
+        </trim>
+    </insert>
+
+    <!--<insert id="insertTrim">-->
+        <!--insert into user-->
+        <!--<trim prefix="(" suffixOverrides="," suffix=")">-->
+            <!--<if test="userName!=null">-->
+                <!--user_name,-->
+            <!--</if>-->
+            <!--<if test="gender!=null">-->
+                <!--gender,-->
+            <!--</if>-->
+            <!--<if test="email!=null">-->
+                <!--email,-->
+            <!--</if>-->
+        <!--</trim>-->
+        <!--values-->
+        <!--<trim prefix="("  suffix=")" suffixOverrides=",">-->
+            <!--<if test="userName!=null">-->
+                <!--#{userName},-->
+            <!--</if>-->
+            <!--<if test="gender!=null">-->
+                <!--#{gender},-->
+            <!--</if>-->
+            <!--<if test="email!=null">-->
+                <!--#{email},-->
+            <!--</if>-->
+        <!--</trim>-->
+    <!--</insert>-->
+
+    <delete id="deleteForEach">
+        delete from user
+        where id in
+        <foreach collection="ids" open="(" close=")" separator="," item="id">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
