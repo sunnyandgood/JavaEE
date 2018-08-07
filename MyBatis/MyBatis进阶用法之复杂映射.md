@@ -98,30 +98,45 @@
                 where id=#{id}
         </select>
 
-* 写法3 (Mybatis特有的分布查询+延迟加载) <不咋用>
+* 写法3 (Mybatis特有的分步查询+延迟加载)
 
-     >UserMapper.xml
+     * 分步查询会执行2次查询 
+     
+          >UserMapper.xml
 
-        <resultMap type="User" id="userClassRoomResultMap3">
-             <id property="id" column="id"/>
-            <result property="userName" column="user_name"/>
-            <result property="gender" column="gender"/>
-            <result property="email" column="email"/>
-            <association property="classRoom" column="c_id" select="com.weixin.dao.
-                                           ClassRoomMapper.selectById"></association>
-        </resultMap>
+              <resultMap type="User" id="userClassRoomResultMap3">
+                   <id property="id" column="id"/>
+                  <result property="userName" column="user_name"/>
+                  <result property="gender" column="gender"/>
+                  <result property="email" column="email"/>
+                  <association property="classRoom" column="c_id" select="com.weixin.dao.
+                                                 ClassRoomMapper.selectById"></association>
+              </resultMap>
 
-         <select id="selectUserClassRoomById" resultMap="userClassRoomResultMap3" >
-                select * from user where id=#{id}
-        </select>
+               <select id="selectUserClassRoomById" resultMap="userClassRoomResultMap3" >
+                      select * from user where id=#{id}
+              </select>
 
-     >ClassRoomMapper.xml
+          >ClassRoomMapper.xml
 
-        <select id="selectById" resultType="ClassRoom">
-          select * from classroom where c_id=#{id}
-        </select>
+              <select id="selectById" resultType="ClassRoom">
+                select * from classroom where c_id=#{id}
+              </select>
 
+     * 延迟加载：需要在总配置文件中设置：
+     
+          >mybatis-config.xml
 
+            <settings>
+                <!--开启延迟加载-->
+                <setting name="lazyLoadingEnabled" value="true"/>
+                <!--关闭积极加载-->
+                <setting name="aggressiveLazyLoading" value="false"/>
+            </settings>           
+     
+          * 设置延迟加载后，sql会按需查询，sql只执行一次
+          
+          * 延迟加载可以降低mysql开销，多对一相对开销还小，如果是一对多方式。比如查询所有的教室，对应的查询所有教室的学生，延迟加载就显得更为重要
 
 
 
