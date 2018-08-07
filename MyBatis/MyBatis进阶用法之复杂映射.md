@@ -36,7 +36,7 @@
 
 ### 二、创建classroom表
 
-* classroom.sql
+>classroom.sql
 
       DROP TABLE IF EXISTS classroom;
       CREATE TABLE classroom (
@@ -51,8 +51,7 @@
       INSERT INTO `classroom` VALUES ('1', '一班');
       INSERT INTO `classroom` VALUES ('2', '二班');
       INSERT INTO `classroom` VALUES ('3', '三班');
-
-### 三、多对一之查询单对象（查询一个用户，同时查询用户所在的班级信息）
+      
 
 > User.java
 
@@ -60,7 +59,9 @@
     private String userName;
     private String gender;
     private String email;
-    private ClassRoom classRoom;
+    private ClassRoom classRoom;      
+
+### 三、多对一之查询单对象（查询一个用户，同时查询用户所在的班级信息）
 
 * UserMapper.java
 
@@ -168,6 +169,26 @@
 
 ### 四、多对一之查询List(查询所有的用户，同时查询用户所在的班级信息)
 
+* 
 
+* 写法1 (association)
+
+         <select id="selectAllPlus" resultMap="selectAllPlusResultMap2">
+             select user.*,classroom.name cname from user left join classroom
+             on user.c_id=classroom.c_id
+        </select>
+
+* 写法2 (级联方式)
+
+   <select id="selectAllPlus" resultMap="selectAllPlusResultMap">
+       select user.*,classroom.name cname from user left join classroom
+       on user.c_id=classroom.c_id
+  </select>
+
+* 写法3 (分步+延迟)
+
+   <select id="selectAllPlus" resultMap="selectAllPlusResultMap3">
+        select * from user
+  </select>
 
 
