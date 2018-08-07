@@ -58,6 +58,8 @@
 
 ### 二、Where标签
 
+* 上面示例中，where后面跟了1=1,mybatis觉得这种处理方式不雅，加入where标签。可以智能识别 `and` 和`or`,把多出来的and或者or去掉
+
 * UserMapper.java
 
         //if使用之搜索
