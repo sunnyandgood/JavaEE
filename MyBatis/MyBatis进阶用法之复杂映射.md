@@ -46,38 +46,54 @@
       INSERT INTO `classroom` VALUES ('2', '二班');
       INSERT INTO `classroom` VALUES ('3', '三班');
 
+### 三、多对一之查询单对象（查询一个用户，同时查询用户所在的班级信息）
 
+> User.java
 
+    private int id;
+    private String userName;
+    private String gender;
+    private String email;
+    private ClassRoom classRoom;
 
+* 写法1 (描述单个对象用association)
 
+     * 本身resultMap可以使用默认映射，但是当resultMap中出现association之类的其他特殊标签时，默认映射会失效，所以建议写全属性
 
+               <resultMap id="UserClassRoomResultMap" type="com.edu.bean.User">
+                    <id property="id" column="u_id"/>
+                    <result property="userName" column="user_name"/>
+                    <result property="gender" column="gender"/>
+                    <result property="email" column="email"/>
+                    <association property="classroom" javaType="com.edu.bean.Classroom">
+                        <id property="id" column="c_id"/>
+                        <result property="name" column="name"/>
+                    </association>
+                </resultMap>
 
+                <select id="selectUserClassRoomById" resultMap="UserClassRoomResultMap">
+                    select *,user.id u_id from user
+                    left join classroom
+                    on user.c_id=classroom.id
+                    where user.id=#{id}
+                </select>
 
+                <!-- select标签写法不变  -->
 
+* 写法2 (级联方式)<不咋用>
 
+       <resultMap type="User" id="userClassRoomResultMap">
+            <id property="id" column="id"/>
+            <result property="userName" column="user_name"/>
+            <result property="gender" column="gender"/>
+            <result property="email" column="email"/>
+            <result property="classRoom.cId" column="c_id"/>
+            <result property="classRoom.name" column="cname"/>
+        </resultMap>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <select id="selectUserClassRoomById" resultMap="userClassRoomResultMap">
+                select user.*,classroom.name cname
+                from user left join classroom
+                on user.c_id=classroom.c_id
+                where id=#{id}
+        </select>
