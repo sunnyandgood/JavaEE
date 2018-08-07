@@ -2,7 +2,7 @@
 
 ### 一、resultMap
 
-* 有时候普通的resultType满足不了开发需要，不能个性化的定义javabean和列值间的对应关系，我们需要替换成另一个属性resultMap
+* 有时候普通的resultType满足不了开发需要，不能个性化的定义javabean和列值间的对应关系，我们需要替换成另一个属性**resultMap**
 
 * resultMap标签中，type和id都为必须属性。type为对应的bean类型，id为唯一标示，供其他select标签引用。id列对应关系要用id标签，其他列都用result标签，可以选择需要对应的特殊列进行对应，其他对应还是会遵循默认对应方式
 
@@ -28,7 +28,23 @@
 
 * 上面的需求不需要resultMap也可以完成，但是接下来的需求普通的resultType将无法完成
 
+### 二、创建classroom表
 
+* classroom.sql
+
+      DROP TABLE IF EXISTS classroom;
+      CREATE TABLE classroom (
+        id int(11) NOT NULL AUTO_INCREMENT,
+        name varchar(255) DEFAULT NULL,
+        PRIMARY KEY (id)
+      ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+      -- ----------------------------
+      -- Records of classroom
+      -- ----------------------------
+      INSERT INTO `classroom` VALUES ('1', '一班');
+      INSERT INTO `classroom` VALUES ('2', '二班');
+      INSERT INTO `classroom` VALUES ('3', '三班');
 
 
 
