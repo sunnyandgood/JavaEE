@@ -100,6 +100,8 @@
 
 * 写法3 (Mybatis特有的分布查询+延迟加载) <不咋用>
 
+     >UserMapper.xml
+
         <resultMap type="User" id="userClassRoomResultMap3">
              <id property="id" column="id"/>
             <result property="userName" column="user_name"/>
@@ -113,9 +115,11 @@
                 select * from user where id=#{id}
         </select>
 
+     >ClassRoomMapper.xml
 
-
-
+        <select id="selectById" resultType="ClassRoom">
+          select * from classroom where c_id=#{id}
+        </select>
 
 
 
