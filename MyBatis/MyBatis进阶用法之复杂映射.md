@@ -61,6 +61,8 @@
     private String email;
     private ClassRoom classRoom;      
 
+---------------------------多对一----------------------------------------
+
 ### 三、多对一之查询单对象（查询一个用户，同时查询用户所在的班级信息）
 
 * UserMapper.java
@@ -217,21 +219,89 @@
               System.out.println(list);
           }
 
+--------------------------一对多--------------------------------------
+
+>ClassRoom.java
+
+      private int cId;
+      private String name;
+      private List<User> userList;
 
 
+### 五、一对多之查询单对象(查询一个班级，同时查询班级里的用户信息)
 
+* ClassroomMapper.java
 
+      //根据id查询某个班级，同时查出这个班级里所有用户的信息
+      Classroom selectClassRoomUserById(int id);
 
+* ClassroomMapper.xml
 
+  <resultMap type="ClassRoom" id="classRoomUserResultMap">
+      <id property="cId" column="c_id"/>
+      <result property="name" column="name"/>
+      <collection property="userList" ofType="User">
+          <id property="id" column="id"/>
+          <result property="userName" column="user_name"/>
+          <result property="gender" column="gender"/>
+          <result property="email" column="email"/>
+      </collection>
+  </resultMap>
+  <select id="selectClassRoomUserById" resultMap="ClassroomUserResultMap">
+      select *,user.id u_id from classroom
+      left join user
+      on user.c_id=classroom.id
+      where classroom.id=#{id}
+  </select>
 
+* 测试
 
+          @Test
+          public void testSelectClassRoomUserById(){
+              //加载mybatis-config.xml到输入流
+              InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+              //通过输入流构建SqlSessionFactory对象
+              SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+              //通过SqlSessionFactory对象得到一个SqlSession对象，每个数据库操作都依靠SqlSession
+              SqlSession sqlSession = sqlSessionFactory.openSession();
+              //通过SqlSession对象得到一个mapper的实现对象
+              ClassroomMapper mapper = sqlSession.getMapper(ClassroomMapper.class);
 
+              Classroom classroom = mapper.selectClassRoomUserById(1);
+              System.out.println(classroom);
+          }
 
+### 六、一对多之查询List
 
+* ClassroomMapper.java
 
+      //查询所有信息，返回一个list
+      List<Classroom> selectClassRoomUser();
 
+* ClassroomMapper.xml
 
+      <select id="selectClassRoomUser" resultMap="ClassroomUserResultMap">
+           select classroom.*,user.id,user.user_name,user.gender,user.email
+             from classroom left join user
+             on classroom.id=user.c_id
+      </select>
 
+* 测试
+
+          @Test
+          public void testSelectClassRoomUser(){
+              //加载mybatis-config.xml到输入流
+              InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+              //通过输入流构建SqlSessionFactory对象
+              SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+              //通过SqlSessionFactory对象得到一个SqlSession对象，每个数据库操作都依靠SqlSession
+              SqlSession sqlSession = sqlSessionFactory.openSession();
+              //通过SqlSession对象得到一个mapper的实现对象
+              ClassroomMapper mapper = sqlSession.getMapper(ClassroomMapper.class);
+
+              List<Classroom> classroomList = mapper.selectClassRoomUser();
+              System.out.println(classroomList);
+          }
 
 
 
