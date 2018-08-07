@@ -237,22 +237,22 @@
 
 * ClassroomMapper.xml
 
-  <resultMap type="ClassRoom" id="classRoomUserResultMap">
-      <id property="cId" column="c_id"/>
-      <result property="name" column="name"/>
-      <collection property="userList" ofType="User">
-          <id property="id" column="id"/>
-          <result property="userName" column="user_name"/>
-          <result property="gender" column="gender"/>
-          <result property="email" column="email"/>
-      </collection>
-  </resultMap>
-  <select id="selectClassRoomUserById" resultMap="ClassroomUserResultMap">
-      select *,user.id u_id from classroom
-      left join user
-      on user.c_id=classroom.id
-      where classroom.id=#{id}
-  </select>
+        <resultMap type="ClassRoom" id="classRoomUserResultMap">
+            <id property="cId" column="c_id"/>
+            <result property="name" column="name"/>
+            <collection property="userList" ofType="User">
+                <id property="id" column="id"/>
+                <result property="userName" column="user_name"/>
+                <result property="gender" column="gender"/>
+                <result property="email" column="email"/>
+            </collection>
+        </resultMap>
+        <select id="selectClassRoomUserById" resultMap="ClassroomUserResultMap">
+              select *,user.id u_id from classroom
+              left join user
+              on user.c_id=classroom.id
+              where classroom.id=#{id}
+        </select>
 
 * 测试
 
