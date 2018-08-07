@@ -22,7 +22,7 @@
 
 ### 三、Spring体系结构:
 
-<div align="center"><img src=""></div>
+<div align="center"><img src="./img/Spring体系结构.png"></div>
 
 * Spring一共有十几个组件，但是真正的核心组件只有几个
 
