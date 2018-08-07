@@ -97,3 +97,30 @@
                 on user.c_id=classroom.c_id
                 where id=#{id}
         </select>
+
+* 写法3 (Mybatis特有的分布查询+延迟加载) <不咋用>
+
+        <resultMap type="User" id="userClassRoomResultMap3">
+             <id property="id" column="id"/>
+            <result property="userName" column="user_name"/>
+            <result property="gender" column="gender"/>
+            <result property="email" column="email"/>
+            <association property="classRoom" column="c_id" select="com.weixin.dao.
+                                           ClassRoomMapper.selectById"></association>
+        </resultMap>
+
+         <select id="selectUserClassRoomById" resultMap="userClassRoomResultMap3" >
+                select * from user where id=#{id}
+        </select>
+
+
+
+
+
+
+
+
+
+
+
+
