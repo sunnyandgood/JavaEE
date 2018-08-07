@@ -16,3 +16,5 @@
 * [MyBatis映射文件配置之参数传递](./MyBatis/MyBatis映射文件配置之参数传递.md)
 * [MyBatis进阶用法之复杂映射](./MyBatis/MyBatis进阶用法之复杂映射.md)
 * [MyBatis进阶用法之动态SQL](./MyBatis/MyBatis进阶用法之动态SQL.md)
+* [MyBatis进阶用法之缓存](./MyBatis/MyBatis进阶用法之缓存.md)
+* [mybatis三剑客](./MyBatis/mybatis三剑客.md)
