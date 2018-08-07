@@ -62,6 +62,11 @@
     private String email;
     private ClassRoom classRoom;
 
+* UserMapper.java
+
+          //多表:查询某个用户和所在的班级信息: (多对一)
+          User selectUserClassRoomById(int id);
+
 * 写法1 (描述单个对象用association)
 
      * 本身resultMap可以使用默认映射，但是当resultMap中出现association之类的其他特殊标签时，默认映射会失效，所以建议写全属性
@@ -143,6 +148,19 @@
           * 设置延迟加载后，sql会按需查询，sql只执行一次
           
           * 延迟加载可以降低mysql开销，多对一相对开销还小，如果是一对多方式。比如查询所有的教室，对应的查询所有教室的学生，延迟加载就显得更为重要
+
+* 测试
+
+          @Test
+          public void testSelectUserClassRoomById(){
+              //通过SqlSessionFactory对象得到一个SqlSession对象，每个数据库操作都依靠SqlSession
+              SqlSession sqlSession = sqlSessionFactory.openSession();
+              //通过SqlSession对象得到一个mapper的实现对象
+              UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+
+              User user = mapper.selectUserClassRoomById(1);
+              System.out.println(user);
+          }
 
 ### 四、多对一之查询List
 
