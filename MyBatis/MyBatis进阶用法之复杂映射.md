@@ -169,26 +169,99 @@
 
 ### 四、多对一之查询List(查询所有的用户，同时查询用户所在的班级信息)
 
-* 
+* UserMapper.java
+
+      //多表查询所有的用户和所在的班级名：（多对一）
+      List<User> selesctUserClassRoom();
 
 * 写法1 (association)
 
-         <select id="selectAllPlus" resultMap="selectAllPlusResultMap2">
+          <select id="selesctUserClassRoom" resultMap="UserClassRoomResultMap">
+              select *,user.id u_id from user
+              left join classroom
+              on user.c_id=classroom.id
+          </select>
+
+* 写法2 (级联方式)
+
+         <select id="selectAllPlus" resultMap="selectAllPlusResultMap">
              select user.*,classroom.name cname from user left join classroom
              on user.c_id=classroom.c_id
         </select>
 
-* 写法2 (级联方式)
-
-   <select id="selectAllPlus" resultMap="selectAllPlusResultMap">
-       select user.*,classroom.name cname from user left join classroom
-       on user.c_id=classroom.c_id
-  </select>
-
 * 写法3 (分步+延迟)
 
-   <select id="selectAllPlus" resultMap="selectAllPlusResultMap3">
-        select * from user
-  </select>
+         <select id="selectAllPlus" resultMap="selectAllPlusResultMap3">
+              select * from user
+        </select>
+
+     * 关闭延迟加载(虽然没有要求查询班级信息，但是仍然去查了班级，list中有多个用户，每个用户再分别去查自己的班级信息)
+     
+     * 开启延迟加载(没有用到班级信息，所以只发了一次sql请求)
+
+* 测试
+
+          @Test
+          public void testSelesctUserClassRoom(){
+              //加载mybatis-config.xml到输入流
+              InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+              //通过输入流构建SqlSessionFactory对象
+              SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+              //通过SqlSessionFactory对象得到一个SqlSession对象，每个数据库操作都依靠SqlSession
+              SqlSession sqlSession = sqlSessionFactory.openSession();
+              //通过SqlSession对象得到一个mapper的实现对象
+              UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+
+              List<User> list = mapper.selesctUserClassRoom();
+
+              System.out.println(list);
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
