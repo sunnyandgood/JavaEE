@@ -19,9 +19,14 @@
               select * from user where id=#{id}
       </select>
 
+* 单独定义对应关系：
 
+      <resultMap type="User" id="userResultMap">
+        <id property="id" column="id"/>
+        <result property="userName" column="user_name"/>
+      </resultMap>
 
-
+* 上面的需求不需要resultMap也可以完成，但是接下来的需求普通的resultType将无法完成
 
 
 
