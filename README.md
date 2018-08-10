@@ -21,4 +21,5 @@
 
 ### [Spring](./Spring)
 * [Spring概述之体系结构](./Spring/Spring概述之体系结构.md)
-* [Spring入门](./Spring/Spring入门.md)
+* [Spring入门之eclipse](./Spring/Spring入门之eclipse.md)
+* [Spring入门之idea](./Spring/Spring入门之idea.md)
