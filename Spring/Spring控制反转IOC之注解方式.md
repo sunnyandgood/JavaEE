@@ -119,6 +119,9 @@
    
       * @Component、@Respository、@Service、@Controller可以混用
       
+            //@Component//默认id是student
+            //@Component(value = "stu")//指定id为stu
+            //@Component("stu")//指定id为stu
             @Service//默认id是student
             //@Service(value = "aa")//指定id为aa
             //@Service("aa")//指定id为aa
