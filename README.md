@@ -23,4 +23,4 @@
 * [Spring概述之体系结构](./Spring/Spring概述之体系结构.md)
 * [Spring入门之eclipse](./Spring/Spring入门之eclipse.md)
 * [Spring入门之idea](./Spring/Spring入门之idea.md)
-* [Spring之IOC](./Spring/Spring之IOC.md)
+* [Spring之IOC(Inversion of Control)](./Spring/Spring之IOC(Inversion of Control).md)
