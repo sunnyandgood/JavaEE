@@ -72,7 +72,7 @@
 
 ### 三、应用
 
-* 1、入门
+* 1、@Component（组件）的使用
 
    * 1>javabean（Student类）
    
@@ -97,8 +97,15 @@
    
           @Test
           public void test1(){
+              //1.创建ioc容器对象：
               ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+              
+              //通过id获得Student实例；com.edu.bean.Student的默认id是student
               Student student = (Student) applicationContext.getBean("student");
+              
+              //通过类名获得Student实例
+              Student student2 = applicationContext.getBean(Student.class);
+              
               System.out.println(student);
           }   
    
