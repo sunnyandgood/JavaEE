@@ -117,7 +117,17 @@
             或
             @Component("stu")
    
-   
+      * @Component、@Respository、@Service、@Controller可以混用
+      
+            @Service//默认id是student
+            //@Service(value = "aa")//指定id为aa
+            //@Service("aa")//指定id为aa
+            public class Student {
+                private Integer id;
+                private String name;
+                private String gender;
+            }
+
    
    
 
