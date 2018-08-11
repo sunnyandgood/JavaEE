@@ -13,7 +13,22 @@
     
 ### 二、使用spring
 
-* 1、xml配置
+* 1、导包
+
+        <!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.5.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.40</version>
+        </dependency>
+
+* 2、xml配置
 
       <bean id="dataBase1" class="com.mchange.v2.c3p0.ComboPooledDataSource">
           <property name="driverClass" value="com.mysql.jdbc.Driver"/>
@@ -22,7 +37,7 @@
           <property name="password" value="root"/>
       </bean>
 
-* 2、测试
+* 3、测试
 
       @Test
       public void testC3p01() throws SQLException {
