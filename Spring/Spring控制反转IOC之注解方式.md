@@ -4,7 +4,7 @@
 
 * 注解包括：
 
-    * @Component :除了下面的都拿它标识
+    * @Component :除了下面的都拿它标识（组件）
 
     * @Respository ：持久层
 
@@ -69,6 +69,10 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.40</version>
         </dependency>
+
+### 三、应用
+
+* 1、入门
 
 
 
