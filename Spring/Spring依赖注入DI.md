@@ -198,7 +198,7 @@
                System.out.println(student);
             }
 
-* 4、Classrom类中有array
+* 4、Classrom类中有set
 
     * javabean
     
