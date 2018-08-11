@@ -29,3 +29,4 @@
 * [Spring控制反转IOC(Inversion of Control)之注解方式](./Spring/Spring控制反转IOC之注解方式.md)
 * [SpringIOC注解方式之自动装配](./Spring/SpringIOC注解方式之自动装配.md)
 * [Spring之aop切面编程的提出](./Spring/Spring之aop切面编程的提出.md)
+* [Spring之aop切面编程的术语](./Spring/Spring之aop切面编程的术语.md)
