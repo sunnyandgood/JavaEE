@@ -40,16 +40,14 @@
 
 ### 三、属性注入之常见方式
 
-* 1、Classroom类与Student类：
-
-    >Classroom类
+   >Classroom类
     
       public class ClassRoom {
           private int cid;
           private String name;
       }
 
-    >Student类
+   >Student类
     
       public class Student {
         private Integer id;
@@ -58,9 +56,9 @@
         private Classroom classroom;
       }    
 
-* 2、学生类中有另一类属性（学生类有个classroom属性）
+* 1、学生类中有另一类属性（学生类有个classroom属性）
 
-    * 1>
+    * 1>外部
 
 
 
