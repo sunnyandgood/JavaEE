@@ -81,6 +81,7 @@
       package com.edu.service.impl;
 
       import com.edu.service.StudentService;
+      import org.springframework.stereotype.Service;
 
       @Service
       public class StudentServiceImpl implements StudentService {
