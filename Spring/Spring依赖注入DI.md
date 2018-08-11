@@ -32,6 +32,7 @@
         private String gender;
       }    
     
+      <!-- 配置bean -->
       <bean id="studentConstructor" class="com.edu.bean.Student">
         <constructor-arg name="id" value="1"/>
         <constructor-arg name="name" value="小明"/>
@@ -58,9 +59,32 @@
 
 * 1、学生类中有另一类属性（学生类有个classroom属性）
 
-    * 1>外部
+    * 1>外部连接
+    
+          <bean id="classroom" class="com.edu.bean.Classroom">
+              <property name="cid" value="1"/>
+              <property name="name" value="一班"/>
+          </bean>
+          <bean id="studentClassroom1" class="com.edu.bean.Student">
+              <property name="id" value="2"/>
+              <property name="name" value="小华"/>
+              <property name="gender" value="男"/>
+              <property name="classroom" ref="classroom"/>
+          </bean>    
 
-
+    * 2>内部bean
+    
+          <bean id="studentClassroom2" class="com.edu.bean.Student">
+              <property name="id" value="3"/>
+              <property name="name" value="小花"/>
+              <property name="gender" value="女"/>
+              <property name="classroom">
+                  <bean class="com.edu.bean.Classroom">
+                      <property name="cid" value="3"/>
+                      <property name="name" value="三班"/>
+                  </bean>
+              </property>
+          </bean>
 
 
 
