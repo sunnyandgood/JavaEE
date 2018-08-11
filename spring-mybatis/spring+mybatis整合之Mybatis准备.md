@@ -77,7 +77,11 @@
    
    * [ClassroomExample.java](./spring_mybatis_demo/src/main/java/com/edu/bean/ClassroomExample.java)
    
+* mapper
+
+   * [UserMapper.java](./spring_mybatis_demo/src/main/java/com/edu/mapper/UserMapper.java)
    
+   * [ClassroomMapper.java](./spring_mybatis_demo/src/main/java/com/edu/mapper/ClassroomMapper.java)
    
    
    
