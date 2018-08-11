@@ -29,6 +29,39 @@
       <!-- base-package表示需要扫描的包及子包 -->
       <context:component-scan base-package="com.edu.bean"></context:component-scan>
 
+   * 子节点： 可以有多个(此节点有一个属性type: type的取值annotation(注解) 和assignable(具体接口或类))
+   
+      * `<context:include-filter>` 包含特例
+      
+      * `<context:exclude-filter>` 不包含特例
+      
+      >eg:annotation
+         
+        ----------- exclude-filter-------------- 
+         
+         <context:component-scan base-package="com.edu.bean">
+          <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+         </context:component-scan>
+       
+        ----------- include-filter-------------- 
+       
+         <context:component-scan base-package="com.edu.bean" use-default-filters="false">
+          <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+         </context:component-scan>
+       
+      >eg:assignable
+      
+        ----------- exclude-filter-------------- 
+         
+          <context:component-scan base-package="com.edu.bean">
+               <context:exclude-filter type="assignable" expression="com.edu.bean.Classroom"/>
+          </context:component-scan>
+       
+        ----------- include-filter-------------- 
+       
+          <context:component-scan base-package="com.edu.bean" use-default-filters="false">
+              <context:include-filter type="assignable" expression="com.edu.bean.Student"/>
+          </context:component-scan>       
 
 ### 二、环境配置
 
