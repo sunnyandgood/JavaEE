@@ -207,8 +207,33 @@
 
 * 2、xml配置
 
+   * 1>xml配置之`<context:include-filter>`
+   
+          <context:component-scan base-package="com.edu.bean">
+              <context:exclude-filter type="assignable" expression="com.edu.bean.Classroom"/>
+          </context:component-scan>   
+    
+   * 2>xml配置之`<context:exclude-filter>`
+   
+          <context:component-scan base-package="com.edu.bean" use-default-filters="false">
+              <context:include-filter type="assignable" expression="com.edu.bean.Student"/>
+          </context:component-scan>   
 
+* 3、测试
 
+       @Test
+       public void testStudent(){
+           ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+           Student student = (Student)applicationContext.getBean("student");
+           System.out.println(student);
+       }
+
+       @Test
+       public void testStudent(){
+           ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+           Student student = (Student)applicationContext.getBean("student");
+           System.out.println(student);
+       }
 
 
 
