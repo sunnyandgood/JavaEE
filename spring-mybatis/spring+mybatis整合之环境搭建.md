@@ -16,7 +16,7 @@
 
     * 连接池包
 
-    <div align="center"><img src="../img/Spring-Mybatis.png"/></div>
+    <div align="center"><img src="https://github.com/sunnyandgood/JavaEE/blob/master/spring-mybatis/img/Spring-Mybatis.png"/></div>
 
 * pom.xml
 
