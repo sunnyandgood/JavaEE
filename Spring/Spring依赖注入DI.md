@@ -61,32 +61,34 @@
               private Classroom classroom;
             }    
 
-    * 1>外部连接
+    * xml配置
     
-          <bean id="classroom" class="com.edu.bean.Classroom">
-              <property name="cid" value="1"/>
-              <property name="name" value="一班"/>
-          </bean>
-          <bean id="studentClassroom1" class="com.edu.bean.Student">
-              <property name="id" value="2"/>
-              <property name="name" value="小华"/>
-              <property name="gender" value="男"/>
-              <property name="classroom" ref="classroom"/>
-          </bean>    
+       * 1>外部连接
 
-    * 2>内部bean
-    
-          <bean id="studentClassroom2" class="com.edu.bean.Student">
-              <property name="id" value="3"/>
-              <property name="name" value="小花"/>
-              <property name="gender" value="女"/>
-              <property name="classroom">
-                  <bean class="com.edu.bean.Classroom">
-                      <property name="cid" value="3"/>
-                      <property name="name" value="三班"/>
-                  </bean>
-              </property>
-          </bean>
+             <bean id="classroom" class="com.edu.bean.Classroom">
+                 <property name="cid" value="1"/>
+                 <property name="name" value="一班"/>
+             </bean>
+             <bean id="studentClassroom1" class="com.edu.bean.Student">
+                 <property name="id" value="2"/>
+                 <property name="name" value="小华"/>
+                 <property name="gender" value="男"/>
+                 <property name="classroom" ref="classroom"/>
+             </bean>    
+
+       * 2>内部bean
+
+             <bean id="studentClassroom2" class="com.edu.bean.Student">
+                 <property name="id" value="3"/>
+                 <property name="name" value="小花"/>
+                 <property name="gender" value="女"/>
+                 <property name="classroom">
+                     <bean class="com.edu.bean.Classroom">
+                         <property name="cid" value="3"/>
+                         <property name="name" value="三班"/>
+                     </bean>
+                 </property>
+             </bean>
 
    * 测试
    
