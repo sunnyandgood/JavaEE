@@ -315,10 +315,32 @@
                System.out.println(student);
             }
 
+### 四、使用p命名空间为属性赋值:
+
+* javabean
+
+     >Student类
+    
+            public class Student {
+              private Integer id;
+              private String name;
+              private String gender;
+            }    
 
 
 
+* xml配置
 
+      <bean id="studentP" class="com.edu.bean.Student" p:id="99" p:name="狗蛋" p:gender="男"></bean>
+
+* 测试
+
+      @Test
+      public void testClassroomMap() {
+         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+         Student student = (Student)applicationContext.getBean("studentP");
+         System.out.println(student);
+      }
 
 
 
