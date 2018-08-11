@@ -13,10 +13,14 @@
     * @Controller :控制层
 
 * 对于扫描到的bean，默认id就是类名首字母小写，当然我们也可以通过value属性指定bean
-
-    * eg：StudentDao的默认id是studentDao
+    
+    >eg
+    
+      StudentDao的默认id是studentDao
 
 * 当在类上使用了特定注解后，还需要在配置文件中添加声明：
+
+   >eg
 
       <!-- base-package表示需要扫描的包及子包 -->
       <context:component-scan base-package="com.edu.bean"></context:component-scan>
