@@ -19,11 +19,32 @@
     
     * ioc容器会默认会运用反射的方式，调用实体类中的无参构造方法创建对象并进行维护，然后使用set方法设置属性，所以要求Student类中有无参构造方法
 
+### 三、获取bean
 
+* 1、先获取ioc容器
 
+     * BeanFactory:面向Spring本身
 
+     * ApplicationContext：是BeanFactory的子接口,面向开发者
 
+          >ApplicationContext的主要实现类：
 
+          * ClassPathXmlApplicationContext:从类路径加载配置文件初始化容器
+            
+          * FileSystemXmlApplicationContext:从文件系统中加载配置文件初始化容器
+
+                  //创建ioc容器对象：
+                  ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+
+* 2、从ioc容器中获取bean
+
+     >通过id(此种方式，要求ioc容器中这个类型的bean是唯一的)
+     
+	  Student student1 = (Student)applicationContext.getBean("student");
+     
+     >通过类名
+     
+      Student student2 = applicationContext.getBean(Student.class);
 
 
 
