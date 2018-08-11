@@ -87,10 +87,53 @@
                 }
             }
 
+* 4、spring使用方式：
 
+    * 在resource资源文件夹下新建 ->other ->spring
 
+         <div align="center"><img src="./img/spring.png"/></div>
 
+    * 起名spring.xml
+    
+            <?xml version="1.0" encoding="UTF-8"?>
+            <beans xmlns="http://www.springframework.org/schema/beans"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                                  http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+                <!-- 配置bean -->
+                <bean id="student" class="com.edu.bean.Student">
+                    <property name="name" value="小红"></property>
+                    <property name="gender" value="女"></property>
+                </bean>
+            </beans>
+    
+### 二、测试
+
+    package com.edu;
+
+    import org.junit.Test;
+    import org.springframework.context.ApplicationContext;
+    import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+    import com.edu.bean.Student;
+
+    public class StudentTest {
+        @Test
+        public void testSpringBean() {
+            //1.创建ioc容器对象：
+            ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+            //2.从容器中获得维护的Student实例
+
+            //通过id
+            Student student1 = (Student)applicationContext.getBean("student");
+            //通过类名
+            Student student2 = applicationContext.getBean(Student.class);
+
+            System.out.println(student1);
+            System.out.println(student2);
+        }
+    }
 
 
 
