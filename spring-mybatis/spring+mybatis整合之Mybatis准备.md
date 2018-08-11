@@ -1,6 +1,6 @@
 # spring+mybatis整合之Mybatis准备
 
-### 用mybatis-generator(代码生成工具)生成mybatis部分
+### 一、用mybatis-generator(代码生成工具)生成mybatis部分
 
 * `generatorConfig.xml`
 
@@ -65,5 +65,52 @@
       </generatorConfiguration>
 
 
-### 详细代码实现
+### 二、详细代码实现
+
+* javabean
+
+   * [User类](./spring-mybatis/spring_mybatis_demo/src/main/java/com/edu/bean/Classroom.java)
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
