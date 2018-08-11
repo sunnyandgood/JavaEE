@@ -93,7 +93,7 @@
    * 测试
    
          @Test
-         public void test() {
+         public void testStudentClassroom() {
             ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
             Student student = (Student)applicationContext.getBean("studentClassroom1");//studentClassroom2
             System.out.println(student);
@@ -101,7 +101,81 @@
 
 * 2、Classrom类中有list
 
+    * javabean
+    
+       >Classroom类
+
+            public class ClassRoom {
+                private int cid;
+                private String name;
+                private List<Student> studentList;
+            }
+
+      >Student类
+    
+            public class Student {
+              private Integer id;
+              private String name;
+              private String gender;
+            }    
+
+    * xml配置
+    
+          <bean id="classroomList" class="com.edu.bean.Classroom">
+              <property name="cid" value="2"/>
+              <property name="name" value="二班"/>
+              <property name="studentList">
+                  <list>
+                      <ref bean="studentClassroom1"/>
+                      <bean class="com.edu.bean.Student">
+                          <property name="id" value="2"/>
+                          <property name="name" value="小雷"/>
+                          <property name="gender" value="男"/>
+                          <property name="classroom">
+                              <ref bean="classroom"/>
+                          </property>
+                      </bean>
+                  </list>
+              </property>
+           </bean>
+
+    * 测试
+   
+         @Test
+         public void testClassroomList() {
+            ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+            Student student = (Student)applicationContext.getBean("classroomList");
+            System.out.println(student);
+         }
+
+* 3、
+
+    * javabean
+    
+       >Classroom类
+
+            public class ClassRoom {
+                private int cid;
+                private String name;
+            }
+
+      >Student类
+    
+            public class Student {
+              private Integer id;
+              private String name;
+              private String gender;
+            }    
+
+    * xml配置
 
 
-
+    * 测试
+   
+         @Test
+         public void test() {
+            ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+            Student student = (Student)applicationContext.getBean("studentClassroom");
+            System.out.println(student);
+         }
 
