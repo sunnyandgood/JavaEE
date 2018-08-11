@@ -114,6 +114,9 @@
       @Service//业务层
       public class StudentServiceImpl implements StudentService {
 
+      //    @Autowired
+      //    private StudentDao studentDao;//当studentDao接口只有一个实现类时
+          
           @Autowired
           @Qualifier(value = "studentDaoImpl2")
           private StudentDao studentDao;
