@@ -172,8 +172,40 @@
                 private String gender;
             }
 
+ * 2、`<context:include-filter> 包含特例`与`<context:exclude-filter> 不包含特例`的使用
+  
+   * javabean
    
-   
+      >Student类
+      
+         package com.edu.bean;
+
+         import lombok.Data;
+         import org.springframework.stereotype.Component;
+
+         @Data
+         @Component
+         public class Student {
+             private Integer id;
+             private String name;
+             private String gender;
+         }
+         
+      >Classroom类
+
+         package com.edu.bean;
+
+         import lombok.Data;
+         import org.springframework.stereotype.Component;
+
+         @Data
+         @Component
+         public class Classroom {
+             private Integer id;
+             private String name;
+         }
+
+* 2、xml配置
 
 
 
