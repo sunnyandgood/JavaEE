@@ -129,7 +129,11 @@
               return studentDao.insert();
           }
       }
-  
+      
+* 配置xml
+
+      <context:component-scan base-package="com.edu"/>
+
 * 测试
 
       package com.edu;
