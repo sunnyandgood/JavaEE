@@ -46,7 +46,17 @@
      
       Student student2 = applicationContext.getBean(Student.class);
 
+-------------------------------------------------------------------------------
 
+		//1、创建ioc容器对象：
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+
+		//2、从容器中获得维护的Student实例
+
+		//2.1通过id
+		Student student1 = (Student)applicationContext.getBean("student");
+		//2.2通过类名
+		Student student2 = applicationContext.getBean(Student.class);
 
 
 
