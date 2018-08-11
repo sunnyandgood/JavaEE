@@ -41,32 +41,25 @@
 
 ### 三、属性注入之常见方式
 
-   >Classroom类
-    
-      public class ClassRoom {
-          private int cid;
-          private String name;
-      }
-
-   >Student类
-    
-      public class Student {
-        private Integer id;
-        private String name;
-        private String gender;
-        private Classroom classroom;
-      }    
-
-   >测试
-   
-      @Test
-      public void test() {
-         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
-         Student student = (Student)applicationContext.getBean("student");
-         System.out.println(student);
-      }
-
 * 1、学生类中有另一类属性（学生类有个classroom属性）
+    
+    * javabean
+    
+       >Classroom类
+
+            public class ClassRoom {
+                private int cid;
+                private String name;
+            }
+
+      >Student类
+    
+            public class Student {
+              private Integer id;
+              private String name;
+              private String gender;
+              private Classroom classroom;
+            }    
 
     * 1>外部连接
     
@@ -95,7 +88,16 @@
               </property>
           </bean>
 
+   * 测试
+   
+         @Test
+         public void test() {
+            ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+            Student student = (Student)applicationContext.getBean("student");
+            System.out.println(student);
+         }
 
+* 2、
 
 
 
