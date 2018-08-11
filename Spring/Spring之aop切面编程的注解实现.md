@@ -82,7 +82,7 @@
 
       import com.edu.service.StudentService;
 
-      //@Service
+      @Service
       public class StudentServiceImpl implements StudentService {
           @Override
           public Integer add() {
