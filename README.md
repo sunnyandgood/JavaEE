@@ -32,3 +32,6 @@
 * [Spring之aop切面编程的术语](./Spring/Spring之aop切面编程的术语.md)
 * [Spring之aop切面编程的注解实现](./Spring/Spring之aop切面编程的注解实现.md)
 * [Spring之aop切面编程的xml实现](./Spring/Spring之aop切面编程的xml实现.md)
+
+### [spring+mybatis整合](./spring-mybatis)
+* [spring+mybatis整合之环境搭建](./spring-mybatis/spring+mybatis整合之环境搭建.md)
