@@ -41,13 +41,51 @@
           <version>1.2.17</version>
       </dependency>
 
+     <div align="center"><img src="./img/spring_demo.png"/></div>
 
+* 3、Hello World
+        
+     * 新建bean --Student
+     
+            package com.edu.bean;
 
+            public class Student {
+                private String name;
+                private String gender;
 
+                public String getName() {
+                    return name;
+                }
 
+                public void setName(String name) {
+                    this.name = name;
+                }
 
+                public String getGender() {
+                    return gender;
+                }
 
+                public void setGender(String gender) {
+                    this.gender = gender;
+                }
 
+                @Override
+                public String toString() {
+                    return "Student [name=" + name + ", gender=" + gender + "]";
+                }
+            }     
+
+     * 之前创建对象的传统方式
+     
+            public class StudentTest {
+                @Test
+                public void test1() {
+                    Student student = new Student();
+                    student.setName("小明");
+                    student.setGender("男");
+                    System.out.println(student);
+                }
+            }
 
 
 
