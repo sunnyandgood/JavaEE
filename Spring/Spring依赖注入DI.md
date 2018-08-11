@@ -95,11 +95,11 @@
          @Test
          public void test() {
             ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
-            Student student = (Student)applicationContext.getBean("student");
+            Student student = (Student)applicationContext.getBean("studentClassroom1");//studentClassroom2
             System.out.println(student);
          }
 
-* 2、
+* 2、Classrom类中有list
 
 
 
