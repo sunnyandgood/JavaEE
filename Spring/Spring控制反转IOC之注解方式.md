@@ -82,7 +82,7 @@
          import org.springframework.stereotype.Component;
 
          @Data
-         @Component
+         @Component//默认id是student
          public class Student {
              private Integer id;
              private String name;
@@ -109,6 +109,13 @@
               System.out.println(student);
           }   
    
+   * 4>拓展
+   
+      * 指定id
+      
+            @Component(value = "stu")
+            或
+            @Component("stu")
    
    
    
