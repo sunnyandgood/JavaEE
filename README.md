@@ -36,3 +36,4 @@
 ### [spring+mybatis整合](./spring-mybatis)
 * [spring+mybatis整合之环境搭建](./spring-mybatis/spring+mybatis整合之环境搭建.md)
 * [spring+mybatis整合之Mybatis准备](./spring-mybatis/spring+mybatis整合之Mybatis准备.md)
+* [spring+mybatis整合SqlSessionFactory及SqlSession的托管](./spring-mybatis/spring+mybatis整合SqlSessionFactory及SqlSession的托管)
