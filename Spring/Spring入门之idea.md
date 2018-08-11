@@ -87,7 +87,7 @@
 
 
       <!-- 配置bean -->
-      <bean id="student" class="com.weixin.bean.Student">
+      <bean id="student" class="com.edu.bean.Student">
           <property name="name" value="小红"></property>
           <property name="gender" value="女"></property>
       </bean>
