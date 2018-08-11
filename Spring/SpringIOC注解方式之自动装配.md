@@ -111,7 +111,7 @@
       import org.springframework.beans.factory.annotation.Qualifier;
       import org.springframework.stereotype.Service;
 
-      @Service
+      @Service//业务层
       public class StudentServiceImpl implements StudentService {
 
           @Autowired
