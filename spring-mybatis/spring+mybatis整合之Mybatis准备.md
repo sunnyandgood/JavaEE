@@ -83,9 +83,11 @@
    
    * [ClassroomMapper.java](./spring_mybatis_demo/src/main/java/com/edu/mapper/ClassroomMapper.java)
    
+* resources/mapper   
    
+   * [UserMapper.xml](./spring_mybatis_demo/src/main/resources/mapper/UserMapper.xml)
    
-   
+   * [ClassroomMapper.xml](./spring_mybatis_demo/src/main/resources/mapper/ClassroomMapper.xml)
    
    
    
