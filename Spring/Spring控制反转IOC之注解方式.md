@@ -16,7 +16,11 @@
     
     >eg
     
-      StudentDao的默认id是studentDao
+      @Component//默认id是studentDao
+      StudentDao
+      
+      @Component(value = "stu")//指定id为stu
+      StudentDao
 
 * 当在类上使用了特定注解后，还需要在配置文件中添加声明：
 
