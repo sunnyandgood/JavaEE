@@ -69,7 +69,7 @@
 
 * javabean
 
-   * [User类](./spring_mybatis_demo/src/main/java/com/edu/bean/Classroom.java)
+   * [User类](./spring_mybatis_demo/src/main/java/com/edu/bean/User.java)
 
    
    
