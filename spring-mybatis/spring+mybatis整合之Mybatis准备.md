@@ -18,7 +18,7 @@
               <!--<plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>-->
               <commentGenerator>
                   <!-- 这个元素用来去除指定生成的注释中是否包含生成的日期 false:表示保护 -->
-                  <!-- 如果生成日期，会造成即使修改一个字段，整个实体类所有属性都会发生变化，不利于版本控制，所以设置为true -->
+                  <!--如果生成日期，会造成即使修改一个字段，整个实体类所有属性都会发生变化，不利于版本控制，所以设置为true-->
                   <property name="suppressDate" value="true" />
                   <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
                   <property name="suppressAllComments" value="true" />
