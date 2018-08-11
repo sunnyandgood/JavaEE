@@ -26,3 +26,4 @@
 * [Spring控制反转IOC(Inversion of Control)之xml方式](./Spring/Spring控制反转IOC之xml方式.md)
 * [Spring依赖注入DI](./Spring/Spring依赖注入DI.md)
 * [SpringDI之使用外部配置数据源(数据库连接)](./Spring/SpringDI之使用外部配置数据源.md)
+* [Spring控制反转IOC(Inversion of Control)之注解方式](./Spring/Spring控制反转IOC之注解方式.md)
