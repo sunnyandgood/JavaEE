@@ -138,17 +138,19 @@
                   </list>
               </property>
            </bean>
+           
+         * 此案例list中一个classroom来自外部，一个是内部bean 配置数组也是用list标签，而set集合使用set标签，基本使用一样。
 
     * 测试
    
-         @Test
-         public void testClassroomList() {
-            ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
-            Student student = (Student)applicationContext.getBean("classroomList");
-            System.out.println(student);
-         }
+            @Test
+            public void testClassroomList() {
+               ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+               Student student = (Student)applicationContext.getBean("classroomList");
+               System.out.println(student);
+            }
 
-* 3、
+* 3、Classrom类中有array
 
     * javabean
     
@@ -157,6 +159,7 @@
             public class ClassRoom {
                 private int cid;
                 private String name;
+                private Student studentArray[];
             }
 
       >Student类
@@ -168,14 +171,175 @@
             }    
 
     * xml配置
-
+    
+          <bean id="classroomArray" class="com.edu.bean.Classroom">
+              <property name="cid" value="6"/>
+              <property name="name" value="六班"/>
+              <property name="studentArray">
+                  <list>
+                      <bean class="com.edu.bean.Student">
+                          <property name="id" value="8"/>
+                          <property name="name" value="花花"/>
+                      </bean>
+                      <bean class="com.edu.bean.Student">
+                          <property name="id" value="9"/>
+                          <property name="name" value="蕾蕾"/>
+                      </bean>
+                  </list>
+              </property>
+          </bean>
 
     * 测试
    
-         @Test
-         public void test() {
-            ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
-            Student student = (Student)applicationContext.getBean("studentClassroom");
-            System.out.println(student);
-         }
+            @Test
+            public void testClassroomArray() {
+               ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+               Student student = (Student)applicationContext.getBean("classroomArray");
+               System.out.println(student);
+            }
+
+* 4、Classrom类中有array
+
+    * javabean
+    
+       >Classroom类
+
+            public class ClassRoom {
+                private int cid;
+                private String name;
+                private Set<Student> studentSet;
+            }
+
+      >Student类
+    
+            public class Student {
+              private Integer id;
+              private String name;
+              private String gender;
+            }    
+
+    * xml配置
+    
+      * 1>set标签
+      
+            <bean id="classroomSet1" class="com.edu.bean.Classroom">
+                 <property name="cid" value="9"/>
+                 <property name="name" value="九班"/>
+                 <property name="studentSet">
+                     <set>
+                         <bean class="com.edu.bean.Student">
+                             <property name="id" value="8"/>
+                             <property name="name" value="花花"/>
+                         </bean>
+                         <bean class="com.edu.bean.Student">
+                             <property name="id" value="9"/>
+                             <property name="name" value="蕾蕾"/>
+                         </bean>
+                     </set>
+                 </property>
+             </bean>
+      
+      * 2>lait标签
+      
+             <bean id="classroomSet2" class="com.edu.bean.Classroom">
+                 <property name="cid" value="10"/>
+                 <property name="name" value="十班"/>
+                 <property name="studentSet">
+                     <list>
+                         <bean class="com.edu.bean.Student">
+                             <property name="id" value="8"/>
+                             <property name="name" value="花花"/>
+                         </bean>
+                         <bean class="com.edu.bean.Student">
+                             <property name="id" value="9"/>
+                             <property name="name" value="蕾蕾"/>
+                         </bean>
+                     </list>
+                 </property>
+             </bean>
+        
+    * 测试
+   
+            @Test
+            public void testClassroomSet() {
+               ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+               Student student = (Student)applicationContext.getBean("classroomSet1");//classroomSet2
+               System.out.println(student);
+            }
+            
+
+* 5、Classrom类中有map
+
+    * javabean
+    
+       >Classroom类
+
+            public class ClassRoom {
+                private int cid;
+                private String name;
+                private Map<String,Student> studentMap;
+            }
+
+      >Student类
+    
+            public class Student {
+              private Integer id;
+              private String name;
+              private String gender;
+            }    
+
+    * xml配置
+    
+          <bean id="classroomMap" class="com.edu.bean.Classroom">
+              <property name="cid" value="90"/>
+              <property name="name" value="九十班"/>
+              <property name="studentMap">
+                  <map>
+                      <entry key="aa" value-ref="student"/>
+                      <entry key="bb">
+                          <bean class="com.edu.bean.Student">
+                              <property name="id" value="100"/>
+                              <property name="name" value="大炮"/>
+                          </bean>
+                      </entry>
+                  </map>
+              </property>
+          </bean>
+
+    * 测试
+   
+            @Test
+            public void testClassroomMap() {
+               ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+               Student student = (Student)applicationContext.getBean("classroomMap");
+               System.out.println(student);
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
