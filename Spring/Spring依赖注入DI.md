@@ -57,6 +57,15 @@
         private Classroom classroom;
       }    
 
+   >测试
+   
+      @Test
+      public void test() {
+         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+         Student student = (Student)applicationContext.getBean("student");
+         System.out.println(student);
+      }
+
 * 1、学生类中有另一类属性（学生类有个classroom属性）
 
     * 1>外部连接
