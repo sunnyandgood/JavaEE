@@ -44,7 +44,118 @@
 
 ### 二、应用
 
+* dao层
 
+  >`StudentDao`接口
+  
+      package com.edu.dao;
+
+      public interface StudentDao {
+          int insert();
+      }
+  
+  >`StudentDaoImpl`类
+  
+      package com.edu.dao.impl;
+
+      import com.edu.dao.StudentDao;
+      import org.springframework.stereotype.Repository;
+
+      //@Repository
+      //@Repository(value = "studentDao")
+      //@Repository("studentDao")
+      @Repository //持久层
+      public class StudentDaoImpl implements StudentDao {
+
+          @Override
+          public int insert() {
+              System.out.println("增加一个学生");
+              return 1;
+          }
+      }
+  
+  >`StudentDaoImpl2`类
+  
+      package com.edu.dao.impl;
+
+      import com.edu.dao.StudentDao;
+      import org.springframework.stereotype.Repository;
+
+      @Repository
+      public class StudentDaoImpl2 implements StudentDao {
+          @Override
+          public int insert() {
+              System.out.println("又一个实现类：增加一个学生");
+              return 1;
+          }
+      }
+  
+
+* service层
+
+  >`StudentService`接口
+  
+      package com.edu.service;
+
+      public interface StudentService {
+          int insert();
+      }
+  
+  >`StudentServiceImpl`类
+  
+      package com.edu.service.impl;
+
+      import com.edu.dao.StudentDao;
+      import com.edu.service.StudentService;
+      import org.springframework.beans.factory.annotation.Autowired;
+      import org.springframework.beans.factory.annotation.Qualifier;
+      import org.springframework.stereotype.Service;
+
+      @Service
+      public class StudentServiceImpl implements StudentService {
+
+          @Autowired
+          @Qualifier(value = "studentDaoImpl2")
+          private StudentDao studentDao;
+
+      //    @Autowired
+      //    private StudentDao studentDaoImp;
+
+      //    @Autowired
+      //    private StudentDao studentDaoImpl2;
+
+          @Override
+          public int insert() {
+              return studentDao.insert();
+          }
+      }
+  
+* 测试
+
+      package com.edu;
+
+      import com.edu.service.StudentService;
+      import com.edu.service.impl.StudentServiceImpl;
+      import org.junit.Test;
+      import org.springframework.context.ApplicationContext;
+      import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+      public class AutoTest {
+          @Test
+          public void testAuto(){
+              ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+              StudentService service = applicationContext.getBean(StudentServiceImpl.class);
+              service.insert();
+          }
+      }
+
+  
+  
+  
+  
+  
+  
+  
 
 
 
