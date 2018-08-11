@@ -74,7 +74,38 @@
 
 * 1、入门
 
+   * 1>javabean（Student类）
+   
+         package com.edu.bean;
 
+         import lombok.Data;
+         import org.springframework.stereotype.Component;
+
+         @Data
+         @Component
+         public class Student {
+             private Integer id;
+             private String name;
+             private String gender;
+         }
+
+   * 2>xml配置
+   
+         <context:component-scan base-package="com.edu.bean"/>
+   
+   * 3>测试
+   
+          @Test
+          public void test1(){
+              ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+              Student student = (Student) applicationContext.getBean("student");
+              System.out.println(student);
+          }   
+   
+   
+   
+   
+   
 
 
 
