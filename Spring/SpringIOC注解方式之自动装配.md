@@ -4,6 +4,8 @@
 
 * 使用注解使ioc容器维护bean，但是bean之间的关联关系我们可以使用 `@Autowired` , 此注解可以写在**属性上，构造方法上，setter方法上** 
 
+* @resource @Inject 和@Autowired用法功能类似，功能不全，建议使用@Autowired
+
 * spring容器会首先根据`变量名 = bean的id名`(此处id必须是手动指定的，默认的不行)去匹配，如果匹配不上再根据类型查找容器中相应的bean进行关联
 
   >eg:
@@ -81,7 +83,7 @@
       import com.edu.dao.StudentDao;
       import org.springframework.stereotype.Repository;
 
-      @Repository
+      @Repository//持久层
       public class StudentDaoImpl2 implements StudentDao {
           @Override
           public int insert() {
@@ -156,11 +158,32 @@
           }
       }
 
+* 总结：  
   
-  
-  
-  
-  
+      当使用 @Autowired                     时，首先检测  studentDao（变量名）与 bean的id  是否匹配，
+            private StudentDao studentDao;  
+      如果匹配不上再根据类型查找容器中相应的bean进行关联。若该类型存在多个相应的bean，则使用
+      @Autowired
+      private StudentDao studentDaoImp;
+      //或
+      @Autowired
+      private StudentDao studentDaoImpl2;
+      //或
+      @Autowired
+      @Qualifier(value = "studentDaoImpl2")
+      private StudentDao studentDao;
+      去指定。
+      
+      //或
+      @Repository("studentDao") //持久层
+      public class StudentDaoImpl implements StudentDao {
+      
+      }
+      //或
+      @Repository("studentDao") //持久层
+      public class StudentDaoImpl2 implements StudentDao {
+      
+      }
   
   
 
