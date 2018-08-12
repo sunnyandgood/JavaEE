@@ -1,4 +1,4 @@
-# SpringMVC_RequestMapping注解之通配符支持
+# SpringMVC_RequestMapping注解
 
 ### 通配符支持
 
