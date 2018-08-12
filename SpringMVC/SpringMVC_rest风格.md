@@ -45,6 +45,8 @@
             }
 
     * put请求
+    
+        >eg:
 
             <form action="${pageContext.request.contextPath}/spring/student/2" method="post">
                 <input type="hidden" name="_method" value="put"/>
