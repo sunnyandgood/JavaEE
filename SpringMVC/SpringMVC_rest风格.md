@@ -14,7 +14,7 @@
 
         /student/ -post --新增学生信息
 
-### 我们可以配置一个过滤器HiddenHttpMethodFilter把post请求转换位put请求和delete请求
+### 二、我们可以配置一个过滤器HiddenHttpMethodFilter把post请求转换位put请求和delete请求
 
     <filter>
         <filter-name>HiddenHttpMethodFilter</filter-name>
