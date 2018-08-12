@@ -82,7 +82,7 @@
       import org.springframework.web.bind.annotation.RequestMapping;
 
       @Controller
-      @RequestMapping("/student")
+      @RequestMapping("/student")//默认是value属性
       public class StudentController {
           /**
            * 1. 使用@RequestMapping注解映射请求的url
@@ -90,7 +90,7 @@
            * prefix+ return值 + suffix 得到实际的物理视图，然后转发
            * @return
            */
-          @RequestMapping("/list")
+          @RequestMapping("/list")//默认是value属性
           public String list(){
               return "student_list";
           }
