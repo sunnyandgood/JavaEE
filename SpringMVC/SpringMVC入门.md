@@ -135,7 +135,7 @@
            * prefix+ return值 + suffix 得到实际的物理视图，然后转发
            * @return
            */
-          @RequestMapping("/hello")
+          @RequestMapping("/hello")//默认是value属性
           public String run(){
               System.out.println("hello SpringMVC!");
               return "success";
