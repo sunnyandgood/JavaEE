@@ -1,5 +1,7 @@
 # SpringMVC_获取参数的一般方式
 
+* 方法上的形参名前端与参数变量名一致会自动赋值：
+
 ### 一、简单测试
 
 * 需要jar包：
@@ -116,7 +118,7 @@
       </body>
       </html>
 
-* HelloController.java
+* HelloController.java（方法上的形参名与前端参数变量名一致会自动赋值：）
 
       package com.edu.controller;
 
