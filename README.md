@@ -42,6 +42,6 @@
 * [spring+mybatis整合之声明式事务配置](./spring-mybatis/spring+mybatis整合之声明式事务配置.md)
 
 ### [SpringMVC](./SpringMVC)
-* [用idea建web工程](./SpringMVC/用idea建web工程)
+* [用idea建web工程](./SpringMVC/用idea建web工程.md)
 * [SpringMVC概述](./SpringMVC/SpringMVC概述.md)
 
