@@ -47,3 +47,4 @@
 * [SpringMVC概述](./SpringMVC/SpringMVC概述.md)
 * [SpringMVC入门](./SpringMVC/SpringMVC入门.md)
 * [SpringMVC_RequestMapping注解之注解位置](./SpringMVC/SpringMVC_RequestMapping注解之注解位置.md)
+* [SpringMVC_RequestMapping注解之属性](./SpringMVC/SpringMVC_RequestMapping注解之属性.md)
