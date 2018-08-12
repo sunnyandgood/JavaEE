@@ -1,6 +1,6 @@
 # JavaEE
 
-### [Web](./web)
+### [Web](./Web)
 * [数据库操作之dbUtil](./数据库操作之dbUtil.md)
 * [数据库操作之jdbcTemplate](./数据库操作之jdbcTemplate.md)
 * [页面跳转之 / 和 /* 的区别](./Web/页面跳转之杠和杠星的区别.md)
