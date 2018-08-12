@@ -93,7 +93,7 @@
 
 ### 二、表单获值
 
-* form.jsp
+* webapp/form.jsp
 
       <%--
         Created by IntelliJ IDEA.
