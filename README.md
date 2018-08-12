@@ -51,3 +51,4 @@
 * [SpringMVC_RequestMapping注解之属性](./SpringMVC/SpringMVC_RequestMapping注解之属性.md)
 * [SpringMVC_RequestMapping注解](./SpringMVC/SpringMVC_RequestMapping注解.md)
 * [SpringMVC_rest风格](./SpringMVC/SpringMVC_rest风格.md)
+* [SpringMVC_获取参数的一般方式](./SpringMVC/SpringMVC_获取参数的一般方式.md)
