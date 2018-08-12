@@ -110,7 +110,7 @@
           <title>Title</title>
       </head>
       <body>
-          <form action="${pageContext.request.contextPath}/form" method="post">
+          <form action="${pageContext.request.contextPath}/form" method="get">
               <input type="text" name="name"/>
               <input type="age" name="age"/>
               <input type="submit" value="提交">
