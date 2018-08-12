@@ -2,8 +2,11 @@
 
 ### 通配符支持
 
-    如： @RequestMapping("/aa/*/cc") --请求地址可以是/aa/xxx/cc
+   >eg
 
+    @RequestMapping("/aa/*/cc") --请求地址可以是/aa/xxx/cc
+    
+    @RequestMapping(value = "/hello/*",method = RequestMethod.GET) --请求地址可以是/hello/XXX
 
 
 
