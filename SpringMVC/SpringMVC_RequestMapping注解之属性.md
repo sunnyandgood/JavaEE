@@ -63,6 +63,19 @@
             
             //请求方式：http://localhost:8080/springmvc_demo/hello?name=asd&age=2
 
+* 方法限制(method)
+
+  >eg：
+
+      @RequestMapping(value="/hello",method=RequestMethod.GET) --请求地址是/hello，而且必须是get请求
+
+      @RequestMapping(value="/hello",method=RequestMethod.POST) --请求地址是/hello，而且必须是post请求
+
+* 参数限制|请求头限制(了解)：
+
+  >eg:
+  
+      @RequestMapping(value = "/hello",params = {"name=1","age"},headers ="Connection=keep-alive" )
 
 
 
