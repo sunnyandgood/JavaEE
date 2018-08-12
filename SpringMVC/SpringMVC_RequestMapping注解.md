@@ -7,6 +7,14 @@
     @RequestMapping("/aa/*/cc") --请求地址可以是/aa/xxx/cc
     
     @RequestMapping(value = "/hello/*",method = RequestMethod.GET) --请求地址可以是/hello/XXX
+    
+    @RequestMapping(value = "/hello/*",method = RequestMethod.GET)
+    public String run(){
+        System.out.println("hello SpringMVC!");
+        return "success";
+    }
+    //请求方式：http://localhost:8080/springmvc_demo/hello/xxx
+    
 
 ### 二、@PathVariable
 
@@ -17,7 +25,8 @@
           System.out.println(id);
           return "success";
       }
-
+      //请求方式：http://localhost:8080/springmvc_demo/testvariable/9
+      
 ### 三、直接访问：
 
 * 标准工程项目jsp页面都要放入WEB-INF下，是不能直接访问的，我们可以配一个简单的路径来直接访问
