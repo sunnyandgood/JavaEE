@@ -44,4 +44,4 @@
 ### [SpringMVC](./SpringMVC)
 * [用idea建web工程](./SpringMVC/用idea建web工程.md)
 * [SpringMVC概述](./SpringMVC/SpringMVC概述.md)
-* [SpringMVC入门](./SpringMV/SpringMVC入门.md)
+* [SpringMVC入门](./SpringMVC/SpringMVC入门.md)
