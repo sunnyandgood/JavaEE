@@ -1,5 +1,20 @@
 # SpringMVC_RequestMapping注解之注解位置
 
+### 一、注解位置解析
+
+* 1、类上
+
+* 2、方法上
+
+* 请求的地址将会是 `/项目名/类上注解/方法上注解`
+
+   >eg:
+   
+      http://localhost:8080/springmvc_demo/student/list
+
+
+### 二、项目实战
+
 * 需要jar包：
 
     * core、beans、context、expression、aop、web、web-mvc
