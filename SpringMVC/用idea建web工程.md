@@ -46,8 +46,47 @@
 
     <div align="center"><img src="./img/web_app.png"/></div>
     
+### 二、配置tomcat    
     
+* Run/Debug Configurations
+
+     <div align="center"><img src="./img/run.png"/></div>
     
+* 
+    
+     <div align="center"><img src="./img/tomcat1.png"/></div>
+    
+* 
+    
+     <div align="center"><img src="./img/tomcat2.png"/></div>
+    
+* 
+     
+     <div align="center"><img src="./img/tomcat3.png"/></div>
+    
+* 
+     
+     <div align="center"><img src="./img/tomcat4.png"/></div>
+    
+* 
+
+     <div align="center"><img src="./img/tomcat5.png"/></div>
+    
+* 
+    
+     <div align="center"><img src="./img/tomcat6.png"/></div>
+    
+* 
+    
+     <div align="center"><img src="./img/tomcat7.png"/></div>
+    
+* 
+     
+     <div align="center"><img src="./img/tomcat8.png"/></div>
+    
+* 
+     
+     <div align="center"><img src="./img/tomcat9.png"/></div>    
     
     
     
