@@ -128,7 +128,7 @@
         }
 
     
-* 在浏览器输入http://localhost:8080/springmvc_demo/Hello    
+* 在浏览器输入http://localhost:8080/web_app/Hello    
     
     
     
