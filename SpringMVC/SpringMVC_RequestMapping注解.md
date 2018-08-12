@@ -8,7 +8,7 @@
     
     @RequestMapping(value = "/hello/*",method = RequestMethod.GET) --请求地址可以是/hello/XXX
     
-    @RequestMapping(value = "/hello/*",method = RequestMethod.GET)
+    @RequestMapping(value = "/hello/*",method = RequestMethod.GET)//访问路径后跟任何字符
     public String run(){
         System.out.println("hello SpringMVC!");
         return "success";
@@ -20,7 +20,7 @@
 
 * @RequestMapping和@PathVariable结合用于获取pathinfo
 
-      @RequestMapping("testvariable/{id}")
+      @RequestMapping("testvariable/{id}")//访问路径后跟数字
       public String testPathVariable(@PathVariable("id")int id) {
           System.out.println(id);
           return "success";
