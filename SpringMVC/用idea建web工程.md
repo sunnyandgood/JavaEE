@@ -52,39 +52,39 @@
 
      <div align="center"><img src="./img/run.png"/></div>
     
-* 
+* 点击Templates
     
      <div align="center"><img src="./img/tomcat1.png"/></div>
     
-* 
+* 选择模板
     
      <div align="center"><img src="./img/tomcat2.png"/></div>
     
-* 
+* 设置Deployment
      
      <div align="center"><img src="./img/tomcat3.png"/></div>
     
-* 
+* 选择web样式
      
      <div align="center"><img src="./img/tomcat4.png"/></div>
     
-* 
+* 修改查看路径
 
      <div align="center"><img src="./img/tomcat5.png"/></div>
     
-* 
+* 添加tomcat模板到项目
     
      <div align="center"><img src="./img/tomcat6.png"/></div>
     
-* 
+* 修改web版本
     
      <div align="center"><img src="./img/tomcat7.png"/></div>
     
-* 
+* 将web版本改为3.1
      
      <div align="center"><img src="./img/tomcat8.png"/></div>
     
-* 
+* 在浏览器输入http://localhost:8080/web_app/
      
      <div align="center"><img src="./img/tomcat9.png"/></div>    
     
