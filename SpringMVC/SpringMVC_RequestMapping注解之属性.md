@@ -2,7 +2,7 @@
 
 ### RequestMapping注解的属性解析
 
-* 拥有属性：
+* 拥有属性：（value、method、params、headers）
 
     * value(默认即为value)//请求路径
 
