@@ -118,8 +118,35 @@
               <property name="suffix" value=".jsp"></property>
           </bean>
       </beans>
+      
+* 新建java文件，弄成控制层：
+
+      package com.edu.controller;
+
+      import org.springframework.stereotype.Controller;
+      import org.springframework.web.bind.annotation.RequestMapping;
+
+      @Controller
+      public class HelloController {
+
+          /**
+           * 1. 使用@RequestMapping注解映射请求的url
+           * 2. 返回值会通过视图解析器解析为实际的物理视图
+           * prefix+ return值 + suffix 得到实际的物理视图，然后转发
+           * @return
+           */
+          @RequestMapping
+          public String run(){
+              System.out.println("hello SpringMVC!");
+              return "success";
+          }
+      }
 
 
+
+* 在/WEB-INF/views下新建success.jsp
+
+   * 然后访问http://localhost:8080/Springmvc/hello
 
 
 
