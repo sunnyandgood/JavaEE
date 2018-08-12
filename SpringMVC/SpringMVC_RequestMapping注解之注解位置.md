@@ -81,7 +81,7 @@
       import org.springframework.stereotype.Controller;
       import org.springframework.web.bind.annotation.RequestMapping;
 
-      @Controller
+      @Controller//控制层
       @RequestMapping("/student")//默认是value属性
       public class StudentController {
           /**
