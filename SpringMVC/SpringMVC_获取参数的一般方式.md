@@ -4,7 +4,7 @@
 
 * 获取pojo参数:形参直接写类名就可以,表单直接写类的各属性，支持级联
 
-### 一、简单测试
+### 一、简单测试(无表单)
 
 * 需要jar包：
 
@@ -95,7 +95,7 @@
    * 然后访问http://localhost:8080/springmvc_demo/form?name=asd&age=9 即可跳转到 `/WEB-INF/views/success.jsp`页面
 
 
-### 二、表单获值
+### 二、表单获值（普通类型）
 
 * webapp/form.jsp
 
@@ -160,7 +160,7 @@
            <url-pattern>/*</url-pattern>
        </filter-mapping>
 
-
+### 三、表单获值（自定义类型）
 
 
 
