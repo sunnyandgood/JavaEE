@@ -145,7 +145,16 @@
    * 然后访问http://localhost:8080/springmvc_demo/form.jsp 填值后提交即可跳转到 `/WEB-INF/views/success.jsp`页面
 
 
+* 在web.xml中配置乱码过滤器
 
+       <filter>
+           <filter-name>HiddenHttpMethodFilter</filter-name>
+           <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+       </filter>
+       <filter-mapping>
+           <filter-name>HiddenHttpMethodFilter</filter-name>
+           <url-pattern>/*</url-pattern>
+       </filter-mapping>
 
 
 
