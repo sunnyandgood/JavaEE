@@ -26,4 +26,4 @@
     //通过类名
     Student student2 = applicationContext.getBean(Student.class);
 
-### 三、SpringMVC启动方式
+### 三、SpringMVC启动方式（和web结合，启动tomcat去启动SpringMVC）
