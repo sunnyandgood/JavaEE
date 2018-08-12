@@ -135,7 +135,7 @@
            * prefix+ return值 + suffix 得到实际的物理视图，然后转发
            * @return
            */
-          @RequestMapping
+          @RequestMapping("/hello")
           public String run(){
               System.out.println("hello SpringMVC!");
               return "success";
@@ -146,7 +146,7 @@
 
 * 在/WEB-INF/views下新建success.jsp
 
-   * 然后访问http://localhost:8080/Springmvc/hello
+   * 然后访问http://localhost:8080/springmvc_demo/hello
 
 
 
