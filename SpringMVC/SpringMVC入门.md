@@ -146,7 +146,7 @@
 
 * 在/WEB-INF/views下新建success.jsp
 
-   * 然后访问http://localhost:8080/springmvc_demo/hello即可跳转到/WEB-INF/views/success.jsp页面
+   * 然后访问http://localhost:8080/springmvc_demo/hello 即可跳转到 `/WEB-INF/views/success.jsp`页面
 
 
 
