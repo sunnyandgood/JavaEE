@@ -93,9 +93,56 @@
 
 ### 二、表单获值
 
+* form.jsp
 
+      <%--
+        Created by IntelliJ IDEA.
+        User: sunny
+        Date: 2018/8/12
+        Time: 17:04
+        To change this template use File | Settings | File Templates.
+      --%>
+      <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+      <html>
+      <head>
+          <title>Title</title>
+      </head>
+      <body>
+          <form action="${pageContext.request.contextPath}/form" method="post">
+              <input type="text" name="name"/>
+              <input type="age" name="age"/>
+              <input type="submit" value="提交">
+          </form>
+      </body>
+      </html>
 
+* HelloController.java
 
+      package com.edu.controller;
+
+      import org.springframework.stereotype.Controller;
+      import org.springframework.web.bind.annotation.RequestMapping;
+
+      @Controller//控制层
+      public class HelloController {
+
+          /**
+           * 1. 使用@RequestMapping注解映射请求的url
+           * 2. 返回值会通过视图解析器解析为实际的物理视图
+           * prefix+ return值 + suffix 得到实际的物理视图，然后转发
+           * @return
+           */
+          @RequestMapping("/form")
+          public String testForm(String name,int age){//支持类型自动转换
+              System.out.println(name);
+              System.out.println(age);
+              return "success";
+          }
+      }
+
+* 在/WEB-INF/views下新建success.jsp
+
+   * 然后访问http://localhost:8080/springmvc_demo/form.jsp 填值后提交即可跳转到 `/WEB-INF/views/success.jsp`页面
 
 
 
