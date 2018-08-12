@@ -77,7 +77,7 @@
            * @return
            */
           @RequestMapping("/form")
-          public String testForm(String name,int age){
+          public String testForm(String name,int age){//支持类型自动转换
               System.out.println(name);
               System.out.println(age);
               return "success";
