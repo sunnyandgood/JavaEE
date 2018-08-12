@@ -119,7 +119,7 @@
           </bean>
       </beans>
       
-* 新建java文件，弄成控制层：(WEB-INF是安全目录，不能直接访问，用转发的方式进去。)
+* 新建java文件，弄成控制层：(**WEB-INF是安全目录，不能直接访问，用转发的方式进去**。)
 
       package com.edu.controller;
 
