@@ -99,4 +99,4 @@
 
 * 在/WEB-INF/views下新建student_list.jsp
 
-   * 然后访问http://localhost:8080/springmvc_demo/student/list即可跳转到/WEB-INF/views/student_list.jsp页面
+   * 然后访问http://localhost:8080/springmvc_demo/student/list 即可跳转到 `/WEB-INF/views/student_list.jsp`页面
