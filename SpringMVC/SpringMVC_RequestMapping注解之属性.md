@@ -49,3 +49,37 @@
           //请求方式：http://localhost:8080/springmvc_demo/hello?name=asd&age=2
 
     * headers
+    
+      >eg:
+      
+            //可以访问，因为浏览器会自己传Connection=keep-alive请求头
+            @RequestMapping(value = "/hello",method = RequestMethod.GET,
+                 params = {"name","age=2"},headers = "Connection=keep-alive")
+            
+            //不可以访问，因为浏览器没有Connection=keep-alive2请求头，需要直接封装请求头
+            @RequestMapping(value = "/hello",method = RequestMethod.GET,
+                 params = {"name","age=2"},headers = "Connection=keep-alive2")
+            
+            
+            //请求方式：http://localhost:8080/springmvc_demo/hello?name=asd&age=2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
