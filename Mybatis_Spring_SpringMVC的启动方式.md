@@ -35,7 +35,8 @@
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 		 version="3.1">
 	    <!-- 配置DispatcherServlet -->
-	    <!-- The front controller of this Spring Web application, responsible for handling all application requests -->
+	    <!-- The front controller of this Spring Web application,  -->
+	    		<!-- responsible for handling all application requests -->
 	    <servlet>
 		<servlet-name>DispatcherServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
