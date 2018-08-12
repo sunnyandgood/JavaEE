@@ -4,10 +4,30 @@
 
 * 拥有属性：
 
-    * value(默认即为value)
+    * value(默认即为value)//请求路径
 
-    * method
+    * method//请求方式
+    
+         * RequestMethod.GET（默认值）
+         
+         * RequestMethod.POST
+         
+         * RequestMethod.DELETE
+         
+         * RequestMethod.HEAD
+         
+         * RequestMethod.OPTIONS
+         
+         * RequestMethod.PATCH
+         
+         * RequestMethod.PUT
+         
+         * RequestMethod.TRACE
 
-    * params
+    * params//请求须带的参数
+    
+      >eg:
+      
+          params = {"name","age=2"})//请求后跟name和age参数，且age=2
 
     * headers
