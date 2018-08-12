@@ -89,10 +89,46 @@
      <div align="center"><img src="./img/tomcat9.png"/></div>    
     
     
+### 三、普通项目
+
+* 导入servletjar包
+
+        <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>javax.servlet-api</artifactId>
+          <version>3.1.0</version>
+          <scope>provided</scope>
+        </dependency>
+
+* HelloServlet
+
+
+        package com.edu;
+
+        import javax.servlet.ServletException;
+        import javax.servlet.annotation.WebServlet;
+        import javax.servlet.http.HttpServlet;
+        import javax.servlet.http.HttpServletRequest;
+        import javax.servlet.http.HttpServletResponse;
+        import java.io.IOException;
+
+        @WebServlet("/Hello")
+        public class HelloServlet extends HttpServlet {
+            protected void doPost(HttpServletRequest request,
+                                  HttpServletResponse response)
+                    throws ServletException, IOException {
+                System.out.println("================");
+            }
+
+            protected void doGet(HttpServletRequest request,
+                                 HttpServletResponse response)
+                    throws ServletException, IOException {
+                System.out.println("================");
+            }
+        }
+
     
-    
-    
-    
+* 在浏览器输入http://localhost:8080/springmvc_demo/Hello    
     
     
     
