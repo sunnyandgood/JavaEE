@@ -101,7 +101,7 @@
           private UserMapper userMapper;
 
           @Override
-          public void run() {
+          public void run() {//使用切面：当此方法有一条语句抛出异常时全都不能执行
               User user = new User();
               user.setUserName("小明100");
               user.setEmail("sdfsf@163.com");
