@@ -162,13 +162,66 @@
 
 ### 三、表单获值（自定义类型）
 
+* User.java
+
+      package com.edu.bean;
+
+      public class User {
+          private Integer age;
+          private String name;
+
+          public Integer getAge() {
+              return age;
+          }
+
+          public void setAge(Integer age) {
+              this.age = age;
+          }
+
+          public String getName() {
+              return name;
+          }
+
+          public void setName(String name) {
+              this.name = name;
+          }
+
+          @Override
+          public String toString() {
+              return "User{" +
+                      "age=" + age +
+                      ", name='" + name + '\'' +
+                      '}';
+          }
+      }
 
 
+* HelloController.java（方法上的形参名与前端参数变量名一致会自动赋值：）
 
+      package com.edu.controller;
 
+      import org.springframework.stereotype.Controller;
+      import org.springframework.web.bind.annotation.RequestMapping;
 
+      @Controller//控制层
+      public class HelloController {
 
+          /**
+           * 1. 使用@RequestMapping注解映射请求的url
+           * 2. 返回值会通过视图解析器解析为实际的物理视图
+           * prefix+ return值 + suffix 得到实际的物理视图，然后转发
+           * @return
+           */
+            @RequestMapping("/formDIY")//method没规定时，任何形式均能接收
+            public String testFormDIY(User user){
+            System.out.println(user);
+            return "success";
+            }
+      }
 
+* 在/WEB-INF/views下新建success.jsp
+
+   * 然后访问http://localhost:8080/springmvc_demo/formDIY?name=asd&age=88 填值后提交即可跳转到 `/WEB-INF/views/success.jsp`页面
 
 
 
