@@ -15,7 +15,7 @@
 
     * 2>method//请求方式
     
-         * RequestMethod.GET（默认值）
+         * RequestMethod.GET
          
          * RequestMethod.POST
          
@@ -154,7 +154,6 @@
            * prefix+ return值 + suffix 得到实际的物理视图，然后转发
            * @return
            */
-          //method默认值是RequestMethod.GET
           //请求后跟name和age参数，且age=2
           @RequestMapping(value = "/hello",method = RequestMethod.GET,params = {"name","age=2"},
                   headers = "Connection=keep-alive")
