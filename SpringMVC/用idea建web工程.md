@@ -36,7 +36,7 @@
 
 * 在main下建resources文件夹
 
-    <div align="center"><img src="./img/resources,png"/></div>
+    <div align="center"><img src="./img/resources.png"/></div>
     
 *  在src下新建test文件夹、再在test下建java文件夹
 
