@@ -49,4 +49,4 @@
 * [SpringMVC入门](./SpringMVC/SpringMVC入门.md)
 * [SpringMVC_RequestMapping注解之注解位置](./SpringMVC/SpringMVC_RequestMapping注解之注解位置.md)
 * [SpringMVC_RequestMapping注解之属性](./SpringMVC/SpringMVC_RequestMapping注解之属性.md)
-* [SpringMVC_RequestMapping注解之通配符支持](./SpringMVC/SpringMVC_RequestMapping注解之通配符支持.md)
+* [SpringMVC_RequestMapping注解](./SpringMVC/SpringMVC_RequestMapping注解.md)
