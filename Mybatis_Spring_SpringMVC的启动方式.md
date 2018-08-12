@@ -18,11 +18,11 @@
 ### 二、Spring启动方式（读取配置文件）
 
     //1.创建ioc容器对象：
-		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
-		//2.从容器中获得维护的Student实例
+    ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+    //2.从容器中获得维护的Student实例
 		
-		//通过id
-		Student student1 = (Student)applicationContext.getBean("student");
+    //通过id
+    Student student1 = (Student)applicationContext.getBean("student");
     //通过类名
     Student student2 = applicationContext.getBean(Student.class);
 
