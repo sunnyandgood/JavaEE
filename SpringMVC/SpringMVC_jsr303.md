@@ -149,37 +149,37 @@
 
 * Student.java
 
-package com.edu.bean;
+      package com.edu.bean;
 
-import lombok.Data;
-import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.format.annotation.DateTimeFormat;
+      import lombok.Data;
+      import org.hibernate.validator.constraints.NotEmpty;
+      import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
-import java.util.Date;
+      import javax.validation.Valid;
+      import javax.validation.constraints.NotNull;
+      import javax.validation.constraints.Past;
+      import javax.validation.constraints.Pattern;
+      import java.util.Date;
 
-@Data
-public class Student {
-    private Integer id;
+      @Data
+      public class Student {
+          private Integer id;
 
-    @NotEmpty(message = "姓名不能为空")
-    private String name;
+          @NotEmpty(message = "姓名不能为空")
+          private String name;
 
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @NotNull(message = "生日不能为空")
-    @Past(message = "必须是过去时间")
-    private Date birthday;
+          @DateTimeFormat(pattern = "yyyy-MM-dd")
+          @NotNull(message = "生日不能为空")
+          @Past(message = "必须是过去时间")
+          private Date birthday;
 
-    @Pattern(regexp = "男|女",message = "必须是男或者女")
-    private String gander;
+          @Pattern(regexp = "男|女",message = "必须是男或者女")
+          private String gander;
 
-    @Valid
-    private Classroom classroom;
-}
+          @Valid
+          private Classroom classroom;
+      }
 
 
 
@@ -193,8 +193,10 @@ public class Student {
       @Data
       public class Classroom {
           private Integer id;
+          @NotEmpty(message = "教室名不能为空")
           private String name;
       }
+
 
 * webapp/input.jsp
 
@@ -206,14 +208,18 @@ public class Student {
         To change this template use File | Settings | File Templates.
       --%>
       <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
       <html>
       <head>
           <title>Title</title>
       </head>
       <body>
-          <form action="${pageContext.request.contextPath}/student/add">
+          <c:forEach items="${errors}" var="fieldError">
+              <h3>${fieldError.field}----${fieldError.defaultMessage}</h3>
+          </c:forEach>
+          <form action="${pageContext.request.contextPath}/student/jsr">
               姓名：<input type="text" name="name"/>
-              生日：<input type="text" name="birthday"/>输入格式：yyyy-MM-dd
+              生日：<input type="text" name="birthday"/>
               性别：<input type="text" name="gander"/>
               班级：<input type="text" name="classroom.name"/>
               <input type="submit" value="提交" />
@@ -239,11 +245,22 @@ public class Student {
            * prefix+ return值 + suffix 得到实际的物理视图，然后转发
            * @return
            */
-            @RequestMapping("/add")
-            public String add(Student student){
-                System.out.println(student);
-                return "success";
-            }
+            @RequestMapping("/jsr")
+             public String testJsr303(@Valid Student student, BindingResult result,Map map){
+                 //操作失败
+                 if(result.getErrorCount()>0) {
+                     List<FieldError> fieldErrors = result.getFieldErrors();
+                     for (FieldError fieldError  : fieldErrors) {
+                         System.out.println(fieldError.getField()+"===="+fieldError.getDefaultMessage());
+                     }
+                     map.put("errors",fieldErrors);
+                     return "forward:/input.jsp";
+                 }else {
+                     //正常操作
+                     System.out.println(student);
+                     return "success";
+                 }
+             }
       }
 
 * 在/WEB-INF/views下新建success.jsp
