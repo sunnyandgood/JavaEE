@@ -1,4 +1,4 @@
-# SpringMVC_RequestMapping注解
+# SpringMVC_RequestMapping注解（通配符支持、@PathVariable、直接访问）
 
 ### 一、通配符支持
 
