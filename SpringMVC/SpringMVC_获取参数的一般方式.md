@@ -167,51 +167,75 @@
            <url-pattern>/*</url-pattern>
        </filter-mapping>
 
-### 三、表单获值（自定义类型）
+### 三、表单获值（级联操作）
 
-* User.java
+* **获取pojo参数:形参直接写类名就可以,表单直接写类的各属性，支持级联**
+
+* Student.java
 
       package com.edu.bean;
 
-      public class User {
-          private Integer age;
+      import lombok.Data;
+
+      import java.util.Date;
+
+      @Data
+      public class Student {
+          private Integer id;
           private String name;
-
-          public Integer getAge() {
-              return age;
-          }
-
-          public void setAge(Integer age) {
-              this.age = age;
-          }
-
-          public String getName() {
-              return name;
-          }
-
-          public void setName(String name) {
-              this.name = name;
-          }
-
-          @Override
-          public String toString() {
-              return "User{" +
-                      "age=" + age +
-                      ", name='" + name + '\'' +
-                      '}';
-          }
+          private Date birthday;
+          private String gander;
+          private Classroom classroom;
       }
 
+* Classroomjava
 
-* HelloController.java（方法上的形参名与前端参数变量名一致会自动赋值：）
+      package com.edu.bean;
+
+      import lombok.Data;
+
+      @Data
+      public class Classroom {
+          private Integer id;
+          private String name;
+      }
+
+* input.jsp
+
+      <%--
+        Created by IntelliJ IDEA.
+        User: sunny
+        Date: 2018/8/13
+        Time: 10:17
+        To change this template use File | Settings | File Templates.
+      --%>
+      <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+      <html>
+      <head>
+          <title>Title</title>
+      </head>
+      <body>
+          <form action="${pageContext.request.contextPath}/student/add">
+              姓名：<input type="text" name="name"/>
+              生日：<input type="text" name="birthday"/>
+              性别：<input type="text" name="gander"/>
+              班级：<input type="text" name="classroom.name"/>
+              <input type="submit" value="提交" />
+          </form>
+      </body>
+      </html>
+
+
+* StudentController.java
 
       package com.edu.controller;
 
       import org.springframework.stereotype.Controller;
       import org.springframework.web.bind.annotation.RequestMapping;
 
-      @Controller//控制层
-      public class HelloController {
+      @Controller
+      @RequestMapping("/student")
+      public class StudentController {
 
           /**
            * 1. 使用@RequestMapping注解映射请求的url
@@ -219,16 +243,16 @@
            * prefix+ return值 + suffix 得到实际的物理视图，然后转发
            * @return
            */
-            @RequestMapping("/formDIY")//method没规定时，任何形式均能接收
-            public String testFormDIY(User user){
-            System.out.println(user);
-            return "success";
+            @RequestMapping("/add")
+            public String add(Student student){
+                System.out.println(student);
+                return "success";
             }
       }
 
 * 在/WEB-INF/views下新建success.jsp
 
-   * 然后访问http://localhost:8080/springmvc_demo/formDIY?name=asd&age=88 填值后提交即可跳转到 `/WEB-INF/views/success.jsp`页面
+   * 然后访问http://localhost:8080/springmvc_demo/input.jsp 填值后提交即可跳转到 `/WEB-INF/views/success.jsp`页面
 
 
 
