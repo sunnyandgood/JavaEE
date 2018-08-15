@@ -52,4 +52,4 @@
 * [SpringMVC_RequestMapping注解](./SpringMVC/SpringMVC_RequestMapping注解.md)
 * [SpringMVC_rest风格](./SpringMVC/SpringMVC_rest风格.md)
 * [SpringMVC_获取参数的一般方式](./SpringMVC/SpringMVC_获取参数的一般方式.md)
-* [SpringMVC_RequestParam绑定请求参数](./SpringMVC/SpringMVC_RequestParam绑定请求参数.md)
+* [SpringMVC_获取参数之RequestParam绑定请求参数](./SpringMVC/SpringMVC_获取参数之RequestParam绑定请求参数.md)
