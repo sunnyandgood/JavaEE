@@ -51,7 +51,7 @@
 * [SpringMVC_RequestMapping注解之属性](./SpringMVC/SpringMVC_RequestMapping注解之属性.md)
 * [SpringMVC_RequestMapping注解](./SpringMVC/SpringMVC_RequestMapping注解.md)
 * [SpringMVC_rest风格](./SpringMVC/SpringMVC_rest风格.md)
-* [SpringMVC_获取参数的一般方式](./SpringMVC/SpringMVC_获取参数的一般方式.md)
+* [SpringMVC_获取参数的一般方式(表单、表单级联、时间格式化)](./SpringMVC/SpringMVC_获取参数的一般方式.md)
 * [SpringMVC_获取参数之RequestParam绑定请求参数](./SpringMVC/SpringMVC_获取参数之RequestParam绑定请求参数.md)
 * [SpringMVC_转发](./SpringMVC/SpringMVC_转发.md)
 * [SpringMVC_重定向](./SpringMVC/SpringMVC_重定向.md)
