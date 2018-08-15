@@ -272,19 +272,11 @@
       @Data
       public class Student {
           private Integer id;
-
-          @NotEmpty(message = "姓名不能为空")
           private String name;
 
           @DateTimeFormat(pattern = "yyyy-MM-dd")
-          @NotNull(message = "生日不能为空")
-          @Past(message = "必须是过去时间")
           private Date birthday;
-
-          @Pattern(regexp = "男|女",message = "必须是男或者女")
           private String gander;
-
-          @Valid
           private Classroom classroom;
       }
 
@@ -299,7 +291,6 @@
       @Data
       public class Classroom {
           private Integer id;
-          @NotEmpty(message = "教室名不能为空")
           private String name;
       }
 
