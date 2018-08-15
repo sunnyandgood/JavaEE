@@ -6,6 +6,14 @@
 
 * 传属性值
 
+     * 原生api方式
+     
+     * springmvc推荐方式: Map|Model|ModelMap
+     
+     * springmvc推荐方式: 1.ModelAndView (模型+视图)
+     
+* 推荐使用map 或者ModelAndView方式，而且以上方式属性都是放在了request域中     
+
 ### 二、原生api方式
 
 * ValueController.java
