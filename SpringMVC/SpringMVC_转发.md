@@ -50,7 +50,14 @@
           }
       }
 
+* 测试：
 
+        http://localhost:8080/spring_mvc_demo2/value/reward1
+
+* 输出：
+
+        request----- 小米---- 
+        session----- ----
 
 
 
