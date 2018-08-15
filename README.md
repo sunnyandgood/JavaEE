@@ -53,4 +53,4 @@
 * [SpringMVC_rest风格](./SpringMVC/SpringMVC_rest风格.md)
 * [SpringMVC_获取参数的一般方式](./SpringMVC/SpringMVC_获取参数的一般方式.md)
 * [SpringMVC_获取参数之RequestParam绑定请求参数](./SpringMVC/SpringMVC_获取参数之RequestParam绑定请求参数.md)
-* [SpringMVC_转发和重定向之传属性值](./SpringMVC/SpringMVC_转发和重定向之传属性值.md)
+* [SpringMVC_转发和重定向](./SpringMVC/SpringMVC_转发和重定向.md)
