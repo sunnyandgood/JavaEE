@@ -41,7 +41,6 @@
           <title>Title</title>
       </head>
       <body>
-          <%--<form action="${pageContext.request.contextPath}/student/testRequestParam">--%>
           <form action="${pageContext.request.contextPath}/student/testRequestParam">
               姓名：<input type="text" name="name"/>
               年龄：<input type="text" name="age"/>
@@ -90,7 +89,6 @@
           <title>Title</title>
       </head>
       <body>
-          <%--<form action="${pageContext.request.contextPath}/student/testRequestParam">--%>
           <form action="${pageContext.request.contextPath}/student/testRequestParam">
               姓名：<input type="text" name="name"/>
               年龄：<input type="text" name="age"/>
@@ -139,7 +137,6 @@
           <title>Title</title>
       </head>
       <body>
-          <%--<form action="${pageContext.request.contextPath}/student/testRequestParam">--%>
           <form action="${pageContext.request.contextPath}/student/testRequestParam">
               姓名：<input type="text" name="name"/>
               年龄：<input type="text" name="age"/>
@@ -189,7 +186,6 @@
           <title>Title</title>
       </head>
       <body>
-          <%--<form action="${pageContext.request.contextPath}/student/testRequestParam">--%>
           <form action="${pageContext.request.contextPath}/student/testRequestParam">
               姓名：<input type="text" name="name"/>
               年龄：<input type="text" name="age"/>
@@ -205,7 +201,7 @@
   * 然后访问http://localhost:8080/springmvc_demo/requestparam_input.jsp 填值后提交即可跳转到 /WEB-INF/views/success.jsp页面
 
 
-### 六、value指定、requared=false（原生数据类型）
+### 六、有默认值（defaultValue）
 
 * 参数给默认值：此时不需要再写required=false
 
@@ -235,8 +231,8 @@
           }
           
           //int age1
-          @RequestMapping("/testRequestParam5")
-          public String testRequestParam5(@RequestParam("name") String name1,
+          @RequestMapping("/testRequestParam3")
+          public String testRequestParam3(@RequestParam("name") String name1,
                                           @RequestParam(value = "age",
                                           defaultValue = "20") int age1){
               System.out.println(name1);
