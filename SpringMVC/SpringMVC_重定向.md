@@ -29,9 +29,13 @@
 
 * 测试：
 
-        http://localhost:8080/spring_mvc_demo2/value/redirect
+      http://localhost:8080/spring_mvc_demo2/value/redirect
         
-        http://localhost:8080/spring_mvc_demo2/value/forward
+     <div align=center><img src="./img/redirect.png"/></div>  
+        
+      http://localhost:8080/spring_mvc_demo2/value/forward
+      
+     <div align=center><img src="./img/forward.png"/></div>  
     
 
 
@@ -59,7 +63,11 @@
 
       http://localhost:8080/spring_mvc_demo2/value/modelredirect
       
+     <div align=center><img src="./img/redirect.png"/></div>  
+      
       http://localhost:8080/spring_mvc_demo2/value/modelforward
+      
+     <div align=center><img src="./img/modelforward.png"/></div>  
 
 
 
