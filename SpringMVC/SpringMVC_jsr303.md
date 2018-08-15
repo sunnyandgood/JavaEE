@@ -147,6 +147,122 @@
 
 ### 四、实例
 
+* Student.java
+
+package com.edu.bean;
+
+import lombok.Data;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+import java.util.Date;
+
+@Data
+public class Student {
+    private Integer id;
+
+    @NotEmpty(message = "姓名不能为空")
+    private String name;
+
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotNull(message = "生日不能为空")
+    @Past(message = "必须是过去时间")
+    private Date birthday;
+
+    @Pattern(regexp = "男|女",message = "必须是男或者女")
+    private String gander;
+
+    @Valid
+    private Classroom classroom;
+}
+
+
+
+* Classroomjava
+
+      package com.edu.bean;
+
+      import lombok.Data;
+      import org.hibernate.validator.constraints.NotEmpty;
+
+      @Data
+      public class Classroom {
+          private Integer id;
+          private String name;
+      }
+
+* webapp/input.jsp
+
+      <%--
+        Created by IntelliJ IDEA.
+        User: sunny
+        Date: 2018/8/13
+        Time: 10:17
+        To change this template use File | Settings | File Templates.
+      --%>
+      <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+      <html>
+      <head>
+          <title>Title</title>
+      </head>
+      <body>
+          <form action="${pageContext.request.contextPath}/student/add">
+              姓名：<input type="text" name="name"/>
+              生日：<input type="text" name="birthday"/>输入格式：yyyy-MM-dd
+              性别：<input type="text" name="gander"/>
+              班级：<input type="text" name="classroom.name"/>
+              <input type="submit" value="提交" />
+          </form>
+      </body>
+      </html>
+
+
+* StudentController.java
+
+      package com.edu.controller;
+
+      import org.springframework.stereotype.Controller;
+      import org.springframework.web.bind.annotation.RequestMapping;
+
+      @Controller
+      @RequestMapping("/student")
+      public class StudentController {
+
+          /**
+           * 1. 使用@RequestMapping注解映射请求的url
+           * 2. 返回值会通过视图解析器解析为实际的物理视图
+           * prefix+ return值 + suffix 得到实际的物理视图，然后转发
+           * @return
+           */
+            @RequestMapping("/add")
+            public String add(Student student){
+                System.out.println(student);
+                return "success";
+            }
+      }
+
+* 在/WEB-INF/views下新建success.jsp
+
+   * 然后访问http://localhost:8080/springmvc_demo/input.jsp 填值后提交即可跳转到 `/WEB-INF/views/success.jsp`页面
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
