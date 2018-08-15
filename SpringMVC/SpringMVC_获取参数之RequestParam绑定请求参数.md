@@ -165,7 +165,6 @@
       @RequestMapping("/student")
       public class StudentController {
           @RequestMapping("/testRequestParam")
-          @RequestMapping("/testRequestParam2")
           public String testRequestParam(@RequestParam(value = "name",required = false) String name1,
                                           @RequestParam(value = "age",required = false) int age1){
                                           //age不能为空，必填
