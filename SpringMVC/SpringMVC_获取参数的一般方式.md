@@ -200,7 +200,7 @@
           private String name;
       }
 
-* input.jsp
+* webapp/input.jsp
 
       <%--
         Created by IntelliJ IDEA.
