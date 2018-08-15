@@ -9,7 +9,7 @@
 * defaultValue
 
 
-### 二、普通方式（value默认值，requared默认为true）
+### 二、value默认值，requared默认为true
 
 * 参数值可以为空
 
@@ -215,6 +215,7 @@
       @Controller
       @RequestMapping("/student")
       public class StudentController {
+          //required = false、Integer age1
           @RequestMapping("/testRequestParam1")
           public String testRequestParam1(@RequestParam("name") String name1,
                                           @RequestParam(value = "age",required = false,
@@ -224,6 +225,7 @@
               return "success";
           }
           
+          //Integer age1
           @RequestMapping("/testRequestParam2")
           public String testRequestParam2(@RequestParam("name") String name1,
                                           @RequestParam(value = "age",
@@ -233,6 +235,7 @@
               return "success";
           }
           
+          //int age1
           @RequestMapping("/testRequestParam5")
           public String testRequestParam5(@RequestParam("name") String name1,
                                           @RequestParam(value = "age",
