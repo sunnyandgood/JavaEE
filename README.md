@@ -57,3 +57,4 @@
 * [SpringMVC_重定向](./SpringMVC/SpringMVC_重定向.md)
 * [SpringMVC_servlet原生api作为参数](./SpringMVC/SpringMVC_servlet原生api作为参数.md)
 * [SpringMVC_请求资源](./SpringMVC/SpringMVC_请求资源.md)
+* [SpringMVC_jsr303](./SpringMVC/SpringMVC_jsr303.md)
