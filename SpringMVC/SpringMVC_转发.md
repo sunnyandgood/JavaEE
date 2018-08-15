@@ -38,28 +38,51 @@
 
 ### 二、原生api方式
 
-* ValueController.java
+* 1、不传参
 
-      @Controller
-      @RequestMapping("/value")
-      public class ValueController {
-          @RequestMapping("/reward1")
-          public String testReward1(HttpServletRequest request){
-              request.setAttribute("name","小米");
-              return "ceshi";
+    * ValueController.java
+
+          @Controller
+          @RequestMapping("/value")
+          public class ValueController {
+              @RequestMapping("/reward1")
+              public String testReward1(HttpServletRequest request){
+                  request.setAttribute("name","小米");
+                  return "ceshi";
+              }
           }
-      }
 
-* 测试：
+    * 测试：
 
-        http://localhost:8080/spring_mvc_demo2/value/reward1
+            http://localhost:8080/spring_mvc_demo2/value/reward1
 
-* 输出：
+    * 输出：
 
-        request----- 小米---- 
-        session----- ----
+            request----- 小米---- 
+            session----- ----
 
+* 2、传参
 
+    * ValueController.java
+
+          @Controller
+          @RequestMapping("/value")
+          public class ValueController {
+              @RequestMapping("/reward2")
+              public String testReward2(String name, HttpServletRequest request){
+                  request.setAttribute("name", name);
+                  return "ceshi";
+              }
+          }
+
+    * 测试：
+
+            http://localhost:8080/spring_mvc_demo2/value/reward2?name=小雅
+
+    * 输出：
+
+            request----- 小雅---- 
+            session----- ----
 
 
 
