@@ -50,7 +50,6 @@
 * [SpringMVC_RequestMapping注解之注解位置](./SpringMVC/SpringMVC_RequestMapping注解之注解位置.md)
 * [SpringMVC_RequestMapping注解之属性](./SpringMVC/SpringMVC_RequestMapping注解之属性.md)
 * [SpringMVC_RequestMapping注解之（通配符支持、@PathVariable、直接访问）](./SpringMVC/SpringMVC_RequestMapping注解.md)
-* [SpringMVC_rest风格](./SpringMVC/SpringMVC_rest风格.md)
 * [SpringMVC_获取参数的一般方式（表单、表单级联、时间格式化）](./SpringMVC/SpringMVC_获取参数的一般方式.md)
 * [SpringMVC_获取参数之RequestParam绑定请求参数](./SpringMVC/SpringMVC_获取参数之RequestParam绑定请求参数.md)
 * [SpringMVC_转发](./SpringMVC/SpringMVC_转发.md)
@@ -59,3 +58,4 @@
 * [SpringMVC_请求资源](./SpringMVC/SpringMVC_请求资源.md)
 * [SpringMVC_jsr303](./SpringMVC/SpringMVC_jsr303.md)
 * [SpringMVC_返回json](./SpringMVC/SpringMVC_返回json.md)
+* [SpringMVC_rest风格](./SpringMVC/SpringMVC_rest风格.md)
