@@ -59,3 +59,130 @@
                 System.out.println("put"+id);
                 return "success";
             }
+
+
+### 三、实例
+
+* delete
+
+    * webapp/rest.jsp
+    
+            <%--
+              Created by IntelliJ IDEA.
+              User: sunny
+              Date: 2018/8/13
+              Time: 15:29
+              To change this template use File | Settings | File Templates.
+            --%>
+            <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+            <html>
+            <head>
+                <title>Title</title>
+                <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+            </head>
+            <body>
+                <%--<form action="${pageContext.request.contextPath}/student/delete/2" method="post">--%>
+                <form action="${pageContext.request.contextPath}/student/delete/2" method="post">
+                    <%--<input type="text" name="_method" value="delete"/>--%>
+                        <input type="hidden" name="_method" value="delete"/>
+                    <input type="submit" value="提交"/>
+                </form>
+            </body>
+            </html>
+    
+    * StudentController.java
+    
+            @Controller
+            @RequestMapping("/student")
+            public class StudentController {
+                @RequestMapping(value="/delete/{id}",method= RequestMethod.DELETE)
+                @ResponseBody    //如果delete或put请求报405需要加此注解
+                public String testDELETE(@PathVariable("id") Integer id) {
+                    System.out.println("delete"+id);
+                    return "delete";
+                }
+            }    
+
+
+* put
+
+    * webapp/rest.jsp
+    
+            <%--
+              Created by IntelliJ IDEA.
+              User: sunny
+              Date: 2018/8/13
+              Time: 15:29
+              To change this template use File | Settings | File Templates.
+            --%>
+            <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+            <html>
+            <head>
+                <title>Title</title>
+                <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+            </head>
+            <body>
+                <form action="${pageContext.request.contextPath}/student/put/2" method="post">
+                    <%--<input type="text" name="_method" value="put"/>--%>
+                        <input type="hidden" name="_method" value="put"/>
+                    <input type="submit" value="提交"/>
+                </form>
+            </body>
+            <script>
+                <%--$.post('${pageContext.request.contextPath}/student/put/3',{'_method':'put'},function (r) {--%>
+                    <%--alert(r);--%>
+                <%--});--%>
+            </script>
+            </html>
+
+
+    
+    * StudentController.java
+    
+            @Controller
+            @RequestMapping("/student")
+            public class StudentController {
+                @RequestMapping(value = "/put/{id}",method = RequestMethod.PUT)
+                @ResponseBody
+                public String testPUT(@PathVariable("id") Integer id){
+                    System.out.println("put"+id);
+                    return "put";
+                }
+            }    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
