@@ -129,7 +129,8 @@
                 </form>
             </body>
             <script>
-                <%--$.post('${pageContext.request.contextPath}/student/put/3',{'_method':'put'},function (r) {--%>
+                <%--$.post('${pageContext.request.contextPath}/student/put/3',--%>
+                                        <%--{'_method':'put'},function (r) {--%>
                     <%--alert(r);--%>
                 <%--});--%>
             </script>
