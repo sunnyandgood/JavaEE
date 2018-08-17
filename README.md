@@ -1,8 +1,13 @@
 # JavaEE
 
-<teble>
+<teble border="10px" align="center">
   <tr>
     <td><a href="./Web">Web</a></td>
+    <td><a href="./MyBatis">MyBatis</a></td>
+    <td><a href="./Spring">Spring</a></td>
+    <td><a href="./spring-mybatis">spring+mybatis整合</a></td>
+    <td><a href="./SpringMVC">SpringMVC</a></td>
+    <td><a href="./ssm">ssm整合</a></td>
   </tr>  
 </table>
 
