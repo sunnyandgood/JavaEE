@@ -423,7 +423,6 @@
      
          >eg:
       
-            <input type="hidden" name="xx"/>    <%--(回填表单,用于提交表单的图片数据库存储)--%>
             <div class="imageUpload"></div>   <%--(上传控件)--%>
 
 * my.js
