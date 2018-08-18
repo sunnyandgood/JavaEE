@@ -177,10 +177,81 @@
 
 * 使用插件：hfileuploadify(fileupload山寨版): [文件下载](https://github.com/ComputerEreop/Huploadify)
 
+* 使用步骤:
+
+     * 1.导入 hfileuploadify的css及js(它依赖jquery，得把jquery也导入)
+
+     * 2.自己不要写file控件了,在想出现上传控件的地方按顺序添加3个div
+     
+         >eg:
+      
+            <input type="text" name="xx"/>    <%--(回填表单,用于提交表单的图片数据库存储)--%>
+            <div class="imageUpload"></div>   <%--(上传控件)--%>
+            <div class="preview"></div>       <%-- (预览)--%>
+
+* 实例
+
+     * 表单
+
+            <%--
+              Created by IntelliJ IDEA.
+              User: sunny
+              Date: 2018/8/17
+              Time: 20:23
+              To change this template use File | Settings | File Templates.
+            --%>
+            <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+            <html>
+            <head>
+                <title>文件上传</title>
+                <jsp:include page="/resources/layout/_css.jsp"/>
+                <link rel="stylesheet" href="${ctx}/resources/css/plugins/Huploadify/Huploadify.css"/>
+            </head>
+            <body>
+
+                <input type="text" name="xx"/>    <%--(回填表单,用于提交表单的图片数据库存储)--%>
+                <div class="imageUpload"></div>   <%--(上传控件)--%>
+                <div class="preview"></div>       <%-- (预览)--%>
+
+            </body>
+            <jsp:include page="/resources/layout/_script.jsp"/>
+            <script src="${ctx}/resources/js/plugins/Huploadify/jquery.Huploadify.js"></script>
+            <script>
+            $('.imageUpload').each(function(){
+                var aa = function(obj){
+                    obj.Huploadify({
+                        auto:true,
+                        fileTypeExts:'*.*;',
+                        multi:true,
+                        //formData:{name:'image0'},
+                        fileSizeLimit:9999,
+                        showUploadedPercent:true,//是否实时显示上传的百分比，如20%
+                        showUploadedSize:true,
+                        removeTimeout:9999999,
+                        uploader:'${ctx}/upload',
+                        onUploadComplete:function(file,data,response){
+                            //获得回填数据
+                            data_json= JSON.parse(data);
+                            src = "${ctx}"+data_json.path;
+                            //此处obj为上传控件  ,代表每个imageUpload
+                            //回填表单
+                            obj.prev().val(data_json.path);
+                            //填充预览图
+                            obj.next().html("<img src='"+src+"' style='height:250px'/>");
+                            setTimeout(function(){
+                                obj.find('.uploadify-queue-item').html('');
+                            },1000);
+                        }
+                    });
+                }
+                aa($(this));
+            });
+            </script>
+            </html>
 
 
 
-
+     * UpLoadController.java
 
 
 
