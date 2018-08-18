@@ -72,6 +72,7 @@
 * [SpringMVC_返回json](./SpringMVC/SpringMVC_返回json.md)
 * [SpringMVC_rest风格](./SpringMVC/SpringMVC_rest风格.md)
 * [SpringMVC_文件上传](./SpringMVC/SpringMVC_文件上传.md)
+* [SpringMVC_拦截器](./SpringMVC/SpringMVC_拦截器.md)
 
 ### [SSM](./ssm)
 * [ssm整合之启动流程](./ssm/ssm整合之启动流程.md)
