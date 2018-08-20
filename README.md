@@ -83,7 +83,8 @@
 ### [Struts2](./Struts2)
 * [Struts2_入门](./Struts2/Struts2_入门.md)
 
-
+### [hibernate](./hibernate)
+* [hibernate_环境搭建](./hibernate/hibernate_环境搭建.md)
 
 
 
