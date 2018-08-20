@@ -82,7 +82,7 @@
 
 * 1、下载需要的jar包
     
-    * Hibernate 的官方主页是www.hibernate.org
+    * Hibernate 的官方主页是  www.hibernate.org
     
     * 推荐下载hibernate-distribution-3.3.2.GA-dist.zip
     
