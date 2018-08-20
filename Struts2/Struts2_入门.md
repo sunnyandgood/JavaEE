@@ -11,6 +11,21 @@
 * [Struts官方地址](http://struts.apache.org)
 
 
+### 二、Struts2使用说明
+
+* 使用Struts 2 开发程序的基本步骤
+
+    * [加载Struts2 类库](./struts2-lib-xml)
+
+    * 配置web.xml文件
+
+    * 开发视图层页面
+
+    * 开发控制层Action
+
+    * 配置struts.xml文件
+
+    * 部署、运行项目
 
 
 
