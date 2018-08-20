@@ -24,17 +24,17 @@
 
 * 使用Struts 2 开发程序的基本步骤
 
-    * [加载Struts2 类库](./struts2-lib-xml)
+    * 1、[加载Struts2 类库](./struts2-lib-xml)
 
-    * 配置web.xml文件
+    * 2、配置web.xml文件
 
-    * 开发视图层页面
+    * 3、开发视图层页面
 
-    * 开发控制层Action（创建一个`xxxAction`继承自`com.opensymphony.xwork2.Action`并实现`execute()`方法）
+    * 4、开发控制层Action（创建一个`xxxAction`继承自`com.opensymphony.xwork2.Action`并实现`execute()`方法）
 
-    * 配置struts.xml文件
+    * 5、配置struts.xml文件
 
-    * 部署、运行项目
+    * 6、部署、运行项目
 
 * 1、Struts2 类库介绍
 
@@ -93,13 +93,13 @@
 
 ### 三、初体验
 
-* [加载Struts2 类库](./struts2-lib-xml)
+* 1、[加载Struts2 类库](./struts2-lib-xml)
 
-* 配置web.xml文件
+* 2、配置web.xml文件
 
-* 开发视图层页面
+* 3、开发视图层页面
 
-* 开发控制层Action
+* 4、开发控制层Action
 
     * 创建一个`xxxAction`继承自`com.opensymphony.xwork2.Action`并实现`execute()`方法
 
@@ -116,7 +116,7 @@
             }
 
 
-* 配置struts.xml文件
+* 5、配置struts.xml文件
 
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE struts PUBLIC
@@ -135,15 +135,15 @@
 
 ### 四、登录demo
 
-* [加载Struts2 类库](./struts2-lib-xml)
+* 1、[加载Struts2 类库](./struts2-lib-xml)
 
-* 配置web.xml文件
+* 2、配置web.xml文件
 
-* 开发视图层页面
+* 3、开发视图层页面
 
-* 开发控制层Action
+* 4、开发控制层Action
 
-* 配置struts.xml文件
+* 5、配置struts.xml文件
 
 
 
