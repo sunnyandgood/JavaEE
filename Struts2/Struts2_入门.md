@@ -240,6 +240,62 @@
             </package>
         </struts>
 
+### 五、Struts2 使用自定义方法
+
+* 1、[加载Struts2 类库](./struts2-lib-xml)
+
+* 2、配置web.xml文件
+
+* 3、开发视图层页面
+
+* 4、开发控制层Action
+
+        package com.edu.acction;
+
+        public class StudentAction {
+            public String add() {
+                System.out.println("学生增加！");
+                return "success";
+            }
+
+            public String delete() {
+                System.out.println("学生删除！");
+                return "success";
+            }
+        }
+
+
+* 5、配置struts.xml文件
+
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE struts PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+            "http://struts.apache.org/dtds/struts-2.0.dtd">
+        <struts>
+            <!-- 创建一个default包，继承自Struts2的struts-default包 -->
+            <package name="default" namespace="/" extends="struts-default">
+                <action name="add" class="com.edu.acction.StudentAction" method="add">
+                    <!-- 结果为"sucess"时，跳转至hello.jsp页面 -->
+                    <result name="success">/hello.jsp</result>
+                </action>
+                <action name="delete" class="com.edu.acction.StudentAction" method="delete">
+                    <!-- 结果为"sucess"时，跳转至hello.jsp页面 -->
+                    <result name="success">/hello.jsp</result>
+                </action>
+            </package>
+        </struts>
+
+
+### 六、如何使用request,session保存信息？
+
+* `request`:
+
+        (Map) ActionContext.getContext().get("request");
+
+* `session`:
+
+        ActionContext.getContext().getSession()
+
 
 
 
