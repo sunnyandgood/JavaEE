@@ -8,6 +8,7 @@
     <td><a href="./spring-mybatis">spring+mybatis整合</a></td>
     <td><a href="./SpringMVC">SpringMVC</a></td>
     <td><a href="./ssm">ssm整合</a></td>
+    <td><a href="./Struts2">Struts2</a></td>
   </tr>
 </table>
 
@@ -79,8 +80,8 @@
 * [ssm整合之环境配置](./ssm/ssm整合之环境配置.md)
 
 
-
-
+### [Struts2][./Struts2]
+* [Struts2_入门](./Struts2/Struts2_入门.md)
 
 
 
