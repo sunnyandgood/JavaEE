@@ -104,7 +104,8 @@
                 <!-- 接收处理用户的/hello.action请求 ， 并根据返回结果，完成跳转 -->
                 <action name="hello" class="com.edu.acction.HelloAction">
                     <!-- 结果为"sucess"时，跳转至hello.jsp页面 -->
-                    <result name="success">hello.jsp</result>
+                    <result name="success" type="redirect">/hello.jsp</result><!--默认是转发，可以指定从定向-->
+                    <result name="success">/hello.jsp</result>
                 </action>
             </package>
         </struts>
@@ -146,7 +147,7 @@
                 <!-- 接收处理用户的/hello.action请求 ， 并根据返回结果，完成跳转 -->
                 <action name="hello" class="com.edu.acction.HelloAction">
                     <!-- 结果为"sucess"时，跳转至hello.jsp页面 -->
-                    <result name="success">hello.jsp</result>
+                    <result name="success">/hello.jsp</result>
                 </action>
             </package>
         </struts>
