@@ -87,8 +87,8 @@
 
 ### [hibernate](./hibernate)
 * [hibernate_环境搭建](./hibernate/hibernate_环境搭建.md)
-
-
+* [hibernate_简介](./hibernate/hibernate_简介)
+* [hibernate_增删改查](./hibernate/hibernate_增删改查.md)
 
 
 
