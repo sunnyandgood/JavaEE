@@ -9,6 +9,8 @@
     <td><a href="./SpringMVC">SpringMVC</a></td>
     <td><a href="./ssm">ssm整合</a></td>
     <td><a href="./Struts2">Struts2</a></td>
+    <td><a href="./hibernate">hibernate</a></td>
+  </tr>
   </tr>
 </table>
 
