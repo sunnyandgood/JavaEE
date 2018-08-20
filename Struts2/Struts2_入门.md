@@ -90,6 +90,24 @@
             <url-pattern>/*</url-pattern>
         </filter-mapping>
 
+* 3、配置struts.xml文件
+
+    >eg:
+
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE struts PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+            "http://struts.apache.org/dtds/struts-2.0.dtd">
+        <struts>
+            <!-- 创建一个default包，继承自Struts2的struts-default包 -->
+            <package name="default" namespace="/" extends="struts-default">
+                <!-- 接收处理用户的/hello.action请求 ， 并根据返回结果，完成跳转 -->
+                <action name="hello" class="com.edu.acction.HelloAction">
+                    <!-- 结果为"sucess"时，跳转至hello.jsp页面 -->
+                    <result name="success">hello.jsp</result>
+                </action>
+            </package>
+        </struts>
 
 ### 三、初体验
 
