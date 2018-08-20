@@ -297,5 +297,20 @@
         ActionContext.getContext().getSession()
 
 
+### 七、Struts2 开发小结
 
+* 开发Struts 2应用的基本环节
 
+    * 确认环境
+        
+        * 是否添加了Struts 2框架支持文件
+        
+        * 是否配置了Filter
+    
+    * 功能实现
+        
+        * 编写Action类
+    
+    * 配置struts.xml文件
+    
+    * 编写视图
