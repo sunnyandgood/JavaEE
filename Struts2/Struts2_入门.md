@@ -24,7 +24,7 @@
 
 * 使用Struts 2 开发程序的基本步骤
 
-    * 1、[加载Struts2 类库](./struts2-lib-xml)
+    * 1、加载Struts2 类库     [下载](./struts2-lib-xml)
 
     * 2、配置web.xml文件
 
@@ -154,7 +154,7 @@
 
 ### 四、登录demo
 
-* 1、[加载Struts2 类库](./struts2-lib-xml)
+* 1、加载Struts2 类库     [下载](./struts2-lib-xml)
 
 * 2、配置web.xml文件
 
@@ -242,7 +242,7 @@
 
 ### 五、Struts2 使用自定义方法
 
-* 1、[加载Struts2 类库](./struts2-lib-xml)
+* 1、加载Struts2 类库     [下载](./struts2-lib-xml)
 
 * 2、配置web.xml文件
 
