@@ -30,7 +30,7 @@
 
     * 开发视图层页面
 
-    * 开发控制层Action
+    * 开发控制层Action（创建一个`xxxAction`继承自`com.opensymphony.xwork2.Action`并实现`execute()`方法）
 
     * 配置struts.xml文件
 
@@ -91,15 +91,59 @@
         </filter-mapping>
 
 
+### 三、初体验
+
+* [加载Struts2 类库](./struts2-lib-xml)
+
+* 配置web.xml文件
+
+* 开发视图层页面
+
+* 开发控制层Action
+
+    * 创建一个`xxxAction`继承自`com.opensymphony.xwork2.Action`并实现`execute()`方法
+
+            package com.edu.acction;
+
+            import com.opensymphony.xwork2.Action;
+
+            public class HelloAction implements Action{
+                @Override
+                public String execute() throws Exception {
+                    System.out.println("Hello world!");
+                    return "success";
+                }
+            }
 
 
+* 配置struts.xml文件
 
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE struts PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+            "http://struts.apache.org/dtds/struts-2.0.dtd">
+        <struts>
+            <!-- 创建一个default包，继承自Struts2的struts-default包 -->
+            <package name="default" namespace="/" extends="struts-default">
+                <!-- 接收处理用户的/hello.action请求 ， 并根据返回结果，完成跳转 -->
+                <action name="hello" class="com.edu.acction.HelloAction">
+                    <!-- 结果为"sucess"时，跳转至hello.jsp页面 -->
+                    <result name="success">hello.jsp</result>
+                </action>
+            </package>
+        </struts>
 
+### 四、登录demo
 
+* [加载Struts2 类库](./struts2-lib-xml)
 
+* 配置web.xml文件
 
+* 开发视图层页面
 
+* 开发控制层Action
 
+* 配置struts.xml文件
 
 
 
