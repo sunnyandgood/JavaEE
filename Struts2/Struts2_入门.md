@@ -158,13 +158,87 @@
 
 * 2、配置web.xml文件
 
-* 3、开发视图层页面
+* 3、开发视图层页面（login.jsp）
+
+        <%@ page language="java" contentType="text/html; charset=UTF-8"
+            pageEncoding="UTF-8"%>
+        <!DOCTYPE html>
+        <html>
+        <head>
+        <meta charset="UTF-8">
+        <title>登录页面</title>
+        </head>
+        <body>
+            requestScope--${requestScope.error}
+            <br>
+            sessionScope--${sessionScope.error1}
+            <form action="${pageContext.request.contextPath}/login" method="post">
+                <input type="text" name="username"/>
+                <input type="text" name="password"/>
+                <input type="submit" value="提交"/>
+            </form>
+        </body>
+        </html>
 
 * 4、开发控制层Action
 
+        package com.edu.acction;
+
+        import java.util.Map;
+
+        import com.opensymphony.xwork2.Action;
+        import com.opensymphony.xwork2.ActionContext;
+
+        public class LoginAction implements Action{
+            private String username;
+            private String password;
+            public String getUsername() {
+                return username;
+            }
+            public void setUsername(String username) {
+                this.username = username;
+            }
+            public String getPassword() {
+                return password;
+            }
+            public void setPassword(String password) {
+                this.password = password;
+            }
+            @Override
+            public String execute() throws Exception {
+                System.out.println(username + "----------" + password);
+                if("小明".equals(username) && "123".equals(password)) {
+                    return "success";
+                }else {
+                    //request域
+                    Map<String, Object> requestMap = (Map<String, Object>)ActionContext.getContext().get("request");
+                    requestMap.put("error", "error");
+                    //sessio域
+                    Map<String, Object> sessionMap = ActionContext.getContext().getSession();
+                    sessionMap.put("error1", "error1");
+                    return "error";
+                }
+            }
+        }
+
 * 5、配置struts.xml文件
 
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE struts PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+            "http://struts.apache.org/dtds/struts-2.0.dtd">
+        <struts>
+            <!-- 创建一个default包，继承自Struts2的struts-default包 -->
+            <package name="default" namespace="/" extends="struts-default">
 
+                <action name="login" class="com.edu.acction.LoginAction">
+                    <!-- 结果为"sucess"时，跳转（重定向）至hello.jsp页面 -->
+                    <result name="success" type="redirect">/hello.jsp</result><!-- 默认是转发,可以指定重定向 -->
+                    <!-- 结果为"error"时，跳转（转发）至login.jsp页面 -->
+                    <result name="error">/login.jsp</result>
+                </action>
+            </package>
+        </struts>
 
 
 
