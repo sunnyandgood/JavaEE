@@ -80,7 +80,7 @@
 * [ssm整合之环境配置](./ssm/ssm整合之环境配置.md)
 
 
-### [Struts2][./Struts2]
+### [Struts2](./Struts2)
 * [Struts2_入门](./Struts2/Struts2_入门.md)
 
 
