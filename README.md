@@ -86,10 +86,10 @@
 * [Struts2_入门](./Struts2/Struts2_入门.md)
 
 ### [hibernate](./hibernate)
+* [hibernate_简介](./hibernate/hibernate_简介.md)
 * [hibernate_环境搭建](./hibernate/hibernate_环境搭建.md)
-
-
-
+* [hibernate_增删改查](./hibernate/hibernate_增删改查.md)
+* [hibernate_HQL](./hibernate/hibernate_HQL.md)
 
 
 

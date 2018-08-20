@@ -59,7 +59,9 @@
 
     <div align="center"><img src="./img/hibernate8.png"/></div>
 
-* 10、修改`User.hbm.xml`的`column`字段和数据库匹配（还有id的<generator class="identity" />）
+* 10、修改`User.hbm.xml`的`column`字段和数据库匹配（还有id的`<generator class="identity" />`）
+
+    <div align="center"><img src="./img/hibernate11.png"/></div>
 
         <?xml version="1.0"?>
         <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
@@ -119,17 +121,17 @@
 
 * 13、常见BUG
 
-* 没将总配置文件放在类类路径下
+    * 没将总配置文件放在类类路径下
 
-    <div align="center"><img src="./img/hibernateBUG1.png"/></div>
-    
-    * 问题处理：
-    
-        <div align="center"><img src="./img/hibernateBUG1解.png"/></div>
+        <div align="center"><img src="./img/hibernateBUG1.png"/></div>
 
-* 总配置文件加载出错，将源修改为`http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd`
+        * 问题处理：
 
-    <div align="center"><img src="./img/hibernateBUG2.png"/></div>
+            <div align="center"><img src="./img/hibernateBUG1解.png"/></div>
+
+    * 总配置文件加载出错，将源修改为`http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd`
+
+        <div align="center"><img src="./img/hibernateBUG2.png"/></div>
 
 
 
