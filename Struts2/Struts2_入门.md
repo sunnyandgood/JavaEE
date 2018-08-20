@@ -112,7 +112,7 @@
 
 ### 三、初体验
 
-* 1、[加载Struts2 类库](./struts2-lib-xml)
+* 1、加载Struts2 类库     [下载](./struts2-lib-xml)
 
 * 2、配置web.xml文件
 
