@@ -65,11 +65,11 @@
                 <property name="hibernate.connection.username">root</property>
                 <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
 
-                <property name="show_sql">true</property>
-            <property name="format_sql">true</property>
+                <property name="show_sql">true</property><!--显示sql语句-->
+                <property name="format_sql">true</property><!--sql语句太长时格式化显示-->
 
                 <!--省略其他配置-->
-              <!--注意配置文件名必须包含其相对于classpath 的全路径-->
+                <!--注意配置文件名必须包含其相对于classpath 的全路径-->
                 <mapping resource="com/edu/bean/User.hbm.xml"/>
 
             </session-factory>
