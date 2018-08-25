@@ -1,6 +1,6 @@
 # SSM框架中引入css,js,图片文件的路径问题解决
 
-### 一、（方式一）在web.xml文件中添加一下代码：
+### 一、（方式一）在`web.xml`文件中添加以下代码：
 
      <!-- 静态资源文件的引入 -->
      <servlet-mapping>
@@ -28,7 +28,7 @@
 * 需要引入相应的样式资源文件时：使用`<link href="<%=basePath%>/assets/css/bootstrap.min.css" rel="stylesheet">`，这种形式即可解决路径问题。
 
 
-### 二、（方式二）在SpringMVC.xml中添加如下代码
+### 二、（方式二）在`SpringMVC.xml`中添加如下代码
 
     <!-- 静态资源映射 location是本地静态资源路径 mapping是映射的url地址，访问时就使用该地址 -->
     <mvc:default-servlet-handler />
