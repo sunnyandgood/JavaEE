@@ -80,6 +80,7 @@
 ### [SSM](./ssm)
 * [ssm整合之启动流程](./ssm/ssm整合之启动流程.md)
 * [ssm整合之环境配置](./ssm/ssm整合之环境配置.md)
+* [SSM框架中引入css,js,图片文件的路径问题解决](./ssm/SSM框架中引入css,js,图片文件的路径问题解决.md)
 
 
 ### [Struts2](./Struts2)
