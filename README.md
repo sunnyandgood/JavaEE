@@ -83,7 +83,7 @@
 
 
 ### [Struts2](./Struts2)
-* [Struts2_入门](./Struts2/Struts2_入门.md)
+* [Struts2_入门（session、request）](./Struts2/Struts2_入门.md)
 
 ### [hibernate](./hibernate)
 * [hibernate_简介](./hibernate/hibernate_简介.md)
