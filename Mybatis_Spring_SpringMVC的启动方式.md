@@ -29,31 +29,31 @@ Student student2 = applicationContext.getBean(Student.class);
 ### 三、SpringMVC启动方式（和web结合，启动tomcat去启动SpringMVC）
 
 * 在web.xml编写DispatcherServlet
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
-	 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	 version="3.1">
-    <!-- 配置DispatcherServlet -->
-    <!-- The front controller of this Spring Web application,  -->
-		<!-- responsible for handling all application requests -->
-    <servlet>
-	<servlet-name>DispatcherServlet</servlet-name>
-	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-	<init-param>
-	    <param-name>contextConfigLocation</param-name>
-	    <param-value>classpath:springmvc.xml</param-value>
-	</init-param>
-	<load-on-startup>1</load-on-startup>
-    </servlet>
+	```xml
+	<?xml version="1.0" encoding="UTF-8"?>
+	<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+		 version="3.1">
+	    <!-- 配置DispatcherServlet -->
+	    <!-- The front controller of this Spring Web application,  -->
+			<!-- responsible for handling all application requests -->
+	    <servlet>
+		<servlet-name>DispatcherServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+		    <param-name>contextConfigLocation</param-name>
+		    <param-value>classpath:springmvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	    </servlet>
 
-    <!-- Map all requests to the DispatcherServlet for handling -->
-    <servlet-mapping>
-	<servlet-name>DispatcherServlet</servlet-name>
-	<url-pattern>/</url-pattern>
-    </servlet-mapping>
+	    <!-- Map all requests to the DispatcherServlet for handling -->
+	    <servlet-mapping>
+		<servlet-name>DispatcherServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	    </servlet-mapping>
 
-</web-app>
-```
+	</web-app>
+	```
