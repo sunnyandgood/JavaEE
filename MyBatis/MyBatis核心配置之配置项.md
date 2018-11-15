@@ -34,16 +34,16 @@
 * 此配置可以把数据库连接信息配置到另外一个配置文件中，实际工作中数据库连接一般交给Spring管理，此配置一般不用。
 
    >eg:
-
-         <transactionManager type="JDBC"/>
-         <dataSource type="POOLED">
-             <property name="driver" value="com.mysql.jdbc.Driver"/>
-             <property name="url" value="jdbc:mysql://localhost:3306/mybatis??useUnicode=true&amp;
-                                                                        characterEncoding=UTF-8"/>
-             <property name="username" value="root"/>
-             <property name="password" value="root"/>
-         </dataSource>
-
+   ```xml
+   <transactionManager type="JDBC"/>
+   <dataSource type="POOLED">
+       <property name="driver" value="com.mysql.jdbc.Driver"/>
+       <property name="url" value="jdbc:mysql://localhost:3306/mybatis??useUnicode=true&amp;
+                                                                  characterEncoding=UTF-8"/>
+       <property name="username" value="root"/>
+       <property name="password" value="root"/>
+   </dataSource>
+   ```
 ### 三、setting设置
 
 * 这是 MyBatis 中极为重要的调整设置，它们会改变 MyBatis 的运行时行为。下表描述了设置中各项的意图、默认值等。
@@ -221,28 +221,29 @@
 
    >eg
    
-      <settings>
-        <setting name="cacheEnabled" value="true"/>
-        <setting name="lazyLoadingEnabled" value="true"/>
-        <setting name="multipleResultSetsEnabled" value="true"/>
-        <setting name="useColumnLabel" value="true"/>
-        <setting name="useGeneratedKeys" value="false"/>
-        <setting name="autoMappingBehavior" value="PARTIAL"/>
-        <setting name="autoMappingUnknownColumnBehavior" value="WARNING"/>
-        <setting name="defaultExecutorType" value="SIMPLE"/>
-        <setting name="defaultStatementTimeout" value="25"/>
-        <setting name="defaultFetchSize" value="100"/>
-        <setting name="safeRowBoundsEnabled" value="false"/>
-        
-        <setting name="mapUnderscoreToCamelCase" value="false"/>
-              <!--此配置默认是false，此配置可以把数据库字段中的下划线替换成java实体类中的驼峰式变量。-->
-              <!--例如： 数据库中 user_name 可以自动映射为java实体类中的 userName-->
-              
-        <setting name="localCacheScope" value="SESSION"/>
-        <setting name="jdbcTypeForNull" value="OTHER"/>
-        <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
-      </settings>   
+   ```xml
+   <settings>
+     <setting name="cacheEnabled" value="true"/>
+     <setting name="lazyLoadingEnabled" value="true"/>
+     <setting name="multipleResultSetsEnabled" value="true"/>
+     <setting name="useColumnLabel" value="true"/>
+     <setting name="useGeneratedKeys" value="false"/>
+     <setting name="autoMappingBehavior" value="PARTIAL"/>
+     <setting name="autoMappingUnknownColumnBehavior" value="WARNING"/>
+     <setting name="defaultExecutorType" value="SIMPLE"/>
+     <setting name="defaultStatementTimeout" value="25"/>
+     <setting name="defaultFetchSize" value="100"/>
+     <setting name="safeRowBoundsEnabled" value="false"/>
 
+     <setting name="mapUnderscoreToCamelCase" value="false"/>
+           <!--此配置默认是false，此配置可以把数据库字段中的下划线替换成java实体类中的驼峰式变量。-->
+           <!--例如： 数据库中 user_name 可以自动映射为java实体类中的 userName-->
+
+     <setting name="localCacheScope" value="SESSION"/>
+     <setting name="jdbcTypeForNull" value="OTHER"/>
+     <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+   </settings>   
+   ```
 ### 四、typeAliases 类型别名
 
 * 映射文件中,默认只能写全类名： 配置此项后，可以给全类名起别名，在映射文件中方便书写：
